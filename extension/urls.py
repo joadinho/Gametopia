@@ -15,7 +15,7 @@ urlpatterns = [
     path('WebServices',WebServices,name="WebServices"),
     path('Xbox',Xbox,name="Xbox"),
     path('Play',Play,name="Play"),
-    path('Pc',Modificar,name="Modificar"),
+    path('Pc',Pc,name="Pc"),
     path('Nintendo',Nintendo,name="Nintendo"),
 
 ]

@@ -33,20 +33,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link , cuP1" href="./Exclusivo Play/playstation.html">PlayStation <span
+                        <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
                                 class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link , cuX1" href="./Exclusivo Xbox/xbox.html">Xbox</a>
+                        <a class="nav-link , cuX1" href="{% url 'Xbox' %}">Xbox</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link disabled , cuN1" href="./Exclusivo Nintendo/nintendo.html">Nintendo</a>
+                        <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' %}">Nintendo</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link disabled , cuPC1" href="./Exclusivo PC/pc.html">PC</a>
+                        <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link disabled , cu1" href="Contacto.html">Contactanos</a>
+                        <a class="nav-link disabled , cu1" href="{% url 'Contacto' %}">Contactanos</a>
                     </li>
                     <li class="nav-item dropdown active , cu1">
                         <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button"
@@ -54,11 +54,11 @@
                             Perfil
                         </a>
                         <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item , cu1" href="Login.html">Iniciar Sesion</a>
+                            <a class="dropdown-item , cu1" href="{% url 'Login' %}">Iniciar Sesion</a>
                             <a class="dropdown-item , cu1" href="{% url 'Registrarse' %}">Registrarse</a>
-                            <a class="dropdown-item , cu1" href="ver perfil.html">Ver perfil</a>
-                            <a class="dropdown-item , cu1" href="Modificar.html">Modificar Perfil</a>
-                            <a class="dropdown-item , cu1" href="administrador.html">Perfil Administrador</a>
+                            <a class="dropdown-item , cu1" href="{% url 'VerPerfil' %}">Ver perfil</a>
+                            <a class="dropdown-item , cu1" href="{% url 'Modificar' %}">Modificar Perfil</a>
+                            <a class="dropdown-item , cu1" href="{% url 'Administrador' %}">Perfil Administrador</a>
                         </div>
                     </li>
 
