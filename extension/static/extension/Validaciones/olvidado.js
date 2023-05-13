@@ -3,6 +3,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var email_ol = $("#emailO").val();
+        var ComenJ = $("#ComeJ").val();
 
         let msjMostrarOlvidado = "";
         let enviar = false;
@@ -30,7 +31,23 @@ $(document).ready(function(){
         else{
             $("#mensaje_Olvidado").html("-En unos minutos le llegará el codigo.");
         }
+
+        //Comentario Juegos
+
+        var letra = ComenJ.trim().charAt(0);
+        if(!esMayuscula(letra)){
+            msjMostrarOlvidado += "<br>-El comentario debe comenzar con mayúscula";
+            enviar = true;
+        }
+
+        if(ComenJ.trim() == ""){
+            msjMostrarOlvidado += "<br>-No puede enviar un comentario vacío";
+            enviar = true;
+        }
+
+
     });
+
 
     function esMayuscula(letra){
         console.log("Estoy aqui");
