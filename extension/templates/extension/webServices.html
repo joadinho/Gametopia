@@ -44,17 +44,18 @@
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link , cuP1" href="./Exclusivo Play/playstation.html">PlayStation <span class="sr-only">(current)</span></a>
+                  <li class="nav-item active">
+                      <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
+                              class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item active">
-                    <a class="nav-link , cuX1" href="./Exclusivo Xbox/xbox.html">Xbox</a>
+                      <a class="nav-link , cuX1" href="{% url 'xbox' %}">Xbox</a>
                   </li>
                   <li class="nav-item active">
-                      <a class="nav-link disabled , cuN1" href="Exclusivo Nintendo/nintendo.html">Nintendo</a>
-                    </li>
+                      <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' %}">Nintendo</a>
+                  </li>
                   <li class="nav-item active">
-                      <a class="nav-link disabled , cuPC1" href="./Exclusivo PC/pc.html">PC</a>
+                      <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
                   </li>
                   <li class="nav-item active">
                       <a class="nav-link disabled , cu1" href="{% url 'Contacto' %}">Contactanos</a>
