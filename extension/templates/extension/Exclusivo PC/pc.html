@@ -20,45 +20,46 @@
 <body class="fondoPC , cuPC">
     <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h3>GameTopia</h3>
-        <a class="navbar-brand" href="../Pantalla.html" style="margin-left: 25px;">Inicio</a>
+        <a class="navbar-brand" href="{% url 'Pantalla' %}" style="margin-left: 25px;">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link , cuP1"  href="../Exclusivo Play/playstation.html">PlayStation <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link , cuX1" href="../Exclusivo Xbox/xbox.html">Xbox</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link disabled , cuN1" href="../Exclusivo Nintendo/nintendo.html">Nintendo</a>
+              <li class="nav-item active">
+                  <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
+                          class="sr-only">(current)</span></a>
               </li>
-            <li class="nav-item active">
-                <a class="nav-link disabled , cuPC1"  href="../Exclusivo PC/pc.html">PC</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link disabled , cu1" href="../Contacto.html">Contactanos</a>
+              <li class="nav-item active">
+                  <a class="nav-link , cuX1" href="{% url 'xbox' %}">Xbox</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' %}">Nintendo</a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link , cu1 , " href="{% url 'Contacto' %}">Contactanos</a>
             </li>
             <li class="nav-item dropdown active , cu1">
               <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Perfil
               </a>
               <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item , cu1" href="../Login.html">Iniciar Sesion</a>
-                <a class="dropdown-item , cu1" href="../Registrarse.html">Registrarse</a>
-                <a class="dropdown-item , cu1" href="../ver perfil.html">Ver perfil</a>
-                <a class="dropdown-item , cu1" href="../Modificar.html">Modificar Perfil</a>
-                <a class="dropdown-item , cu1" href="../administrador.html">Perfil Administrador</a>
-              </div>
+                <a class="dropdown-item , cu1" href="{% url 'Login' %}">Iniciar Sesion</a>
+                <a class="dropdown-item , cu1" href="{% url 'Registrarse' %}">Registrarse</a>
+                <a class="dropdown-item , cu1" href="{% url 'VerPerfil' %}">Ver perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Modificar' %}">Modificar Perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Administrador' %}">Perfil Administrador</a>
+            </div>
             </li>
             
           </ul>
           <form class="form-inline my-2 my-lg-0 , cuPC1">
             <input class="form-control mr-sm-2 , cuPC1" type="search" placeholder="Buscar..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0 , cuPC1" type="submit"><img src="../img/CURSOR/lupa.png"  alt="sin imagen" class="img"></button>
+            <button class="btn btn-outline-success my-2 my-sm-0 , cuPC1" type="submit"><img src="{% static 'extension./img/CURSOR/lupa.png' %}"  alt="sin imagen" class="img"></button>
           </form>
         </div>
       </nav></div>
@@ -71,31 +72,31 @@
         </div><br><br>
         
         <div class="row"><br><br>
-            <div class="col-md-3 col-sm-6 centrar"><a  class="cuPC1" href="../Exclusivo PC/BLACK MESA.html" ><img src="../img/PC/Black Mesa.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">BLACK MESA</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/BATTLE TECH.html" ><img src="../img/PC/BattleTech.png"  alt="sin imagen" class="img" ><br><p class="letraPC">BATTLE TECH</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/COUNTER STRIKE.html" ><img src="../img/PC/counter strike.jpg"  alt="sin imagen" class="img" ><br><p class="letraPC">CS:GO</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/CRUSADER KINGS.html" ><img src="../img/PC/Crusader Kings III.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">CRUSADER KINGS</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a  class="cuPC1" href="{% url 'BMesa' %}" ><img src="{% static 'extension./img/PC/Black Mesa.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">BLACK MESA</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/BATTLE TECH.html" ><img src="{% static 'extension./img/PC/BattleTech.png' %}"  alt="sin imagen" class="img" ><br><p class="letraPC">BATTLE TECH</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/COUNTER STRIKE.html" ><img src="{% static 'extension./img/PC/counter strike.jpg' %}"  alt="sin imagen" class="img" ><br><p class="letraPC">CS:GO</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/CRUSADER KINGS.html" ><img src="{% static 'extension./img/PC/Crusader Kings III.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">CRUSADER KINGS</p></a></div>
         </div><br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/TEAM FOREST.html" ><img src="../img/PC/team forest.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">TEAM FOREST 2</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/PALADINS.html" ><img src="../img/PC/paladins.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">PALADINS</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/WARFACE.html" ><img src="../img/PC/warface.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">WARFACE</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/HALF-LIFE ALYX.html" ><img src="../img/PC/Half-Life Alyx.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">HALF-LIFE ALYX</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/TEAM FOREST.html" ><img src="{% static 'extension./img/PC/team forest.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">TEAM FOREST 2</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/PALADINS.html" ><img src="{% static 'extension./img/PC/paladins.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">PALADINS</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/WARFACE.html" ><img src="{% static 'extension./img/PC/warface.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">WARFACE</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/HALF-LIFE ALYX.html" ><img src="{% static 'extension./img/PC/Half-Life Alyx.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">HALF-LIFE ALYX</p></a></div>
         </div> <br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/DEVOUR.html" ><img src="../img/PC/devour.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">DEVOUR</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/DOTA 2.html" ><img src="../img/PC/Dota 2.jpg"  alt="sin imagen" class="img" ><br><p class="letraPC">DOTA 2</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/ESCAPE FROM TARKOV.html" ><img src="../img/PC/Escape from Tarkov.jpg"  alt="sin imagen" class="img" ><br><p class="letraPC">ESCAPE FROM TARKOV</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/EUROPA UNIVERSALIS.html" ><img src="../img/PC/Europa Universalis IV.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">EUROPA UNIVERSALIS</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/DEVOUR.html" ><img src="{% static 'extension./img/PC/devour.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">DEVOUR</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/DOTA 2.html" ><img src="{% static 'extension./img/PC/Dota 2.jpg' %}"  alt="sin imagen" class="img" ><br><p class="letraPC">DOTA 2</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/ESCAPE FROM TARKOV.html" ><img src="{% static 'extension./img/PC/Escape from Tarkov.jpg' %}"  alt="sin imagen" class="img" ><br><p class="letraPC">ESCAPE FROM TARKOV</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/EUROPA UNIVERSALIS.html" ><img src="{% static 'extension./img/PC/Europa Universalis IV.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">EUROPA UNIVERSALIS</p></a></div>
         </div><br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/EVE.html" ><img src="../img/PC/EVE Online.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">EVE</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/H1Z1.html" ><img src="../img/PC/h1z1.jpg"  alt="sin imagen" class="img" ><br><p class="letraPC">H1Z1</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/PACIFY.html" ><img src="../img/PC/pacify.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">PACIFY</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/LEAGUE OF LEGENDS.html" ><img src="../img/PC/LEAGUE OF LEGENDS.jpg"  alt="sin imagen" class="img"><br><p class="letraPC">LEAGUE OF LEGENDS</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/EVE.html" ><img src="{% static 'extension./img/PC/EVE Online.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">EVE</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/H1Z1.html" ><img src="{% static 'extension./img/PC/h1z1.jpg' %}"  alt="sin imagen" class="img" ><br><p class="letraPC">H1Z1</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/PACIFY.html" ><img src="{% static 'extension./img/PC/pacify.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">PACIFY</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuPC1" href="../Exclusivo PC/LEAGUE OF LEGENDS.html" ><img src="{% static 'extension./img/PC/LEAGUE OF LEGENDS.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">LEAGUE OF LEGENDS</p></a></div>
         </div><br><br>
 
         

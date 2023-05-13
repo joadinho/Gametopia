@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="../CSS/cambios.css"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'extension/./CSS/cambios.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,46 +17,47 @@
 <body class="fondoPP">
     <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h3>GameTopia</h3>
-        <a class="navbar-brand" href="../Pantalla.html" style="margin-left: 25px;">Inicio</a>
+        <a class="navbar-brand" href="{% url 'Pantalla' %}" style="margin-left: 25px;">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link , cuP1"  href="../Exclusivo Play/playstation.html">PlayStation <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                  <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
+                          class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link , cuX1" href="../Exclusivo Xbox/xbox.html">Xbox</a>
+                  <a class="nav-link , cuX1" href="{% url 'xbox' %}">Xbox</a>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link disabled , cuN1" href="../Exclusivo Nintendo/nintendo.html">Nintendo</a>
-                </li>
-              <li class="nav-item active">
-                  <a class="nav-link disabled , cuPC1"  href="../Exclusivo PC/pc.html">PC</a>
+                  <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' %}">Nintendo</a>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link disabled , cu1" href="../Contacto.html">Contactanos</a>
+                  <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
               </li>
-              <li class="nav-item dropdown active , cu1">
-                <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Perfil
-                </a>
-                <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item , cu1" href="../Login.html">Iniciar Sesion</a>
-                  <a class="dropdown-item , cu1" href="../Registrarse.html">Registrarse</a>
-                  <a class="dropdown-item , cu1" href="../ver perfil.html">Ver perfil</a>
-                  <a class="dropdown-item , cu1" href="../Modificar.html">Modificar Perfil</a>
-                  <a class="dropdown-item , cu1" href="../administrador.html">Perfil Administrador</a>
-                </div>
-              </li>
-              
-            </ul>
-            <form class="form-inline my-2 my-lg-0 , cuP1">
-              <input class="form-control mr-sm-2 , cuP1" type="search" placeholder="Buscar..." aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0 , cuP1" type="submit"><img src="../img/CURSOR/lupa.png"  alt="sin imagen" class="img"></button>
-            </form>
+              <li class="nav-item active">
+                <a class="nav-link , cu1 , " href="{% url 'Contacto' %}">Contactanos</a>
+            </li>
+            <li class="nav-item dropdown active , cu1">
+              <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Perfil
+              </a>
+              <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item , cu1" href="{% url 'Login' %}">Iniciar Sesion</a>
+                <a class="dropdown-item , cu1" href="{% url 'Registrarse' %}">Registrarse</a>
+                <a class="dropdown-item , cu1" href="{% url 'VerPerfil' %}">Ver perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Modificar' %}">Modificar Perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Administrador' %}">Perfil Administrador</a>
+            </div>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 , cuN1" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 , cuN1" type="submit"><img src="{% static 'extension./img/CURSOR/lupa.png' %}"  alt="sin imagen" class="img"></button>
+          </form>
           </div>
         </nav></div>
 
@@ -64,7 +66,7 @@
         <br><br>
         <div class="row">
            <div class="col-md-4 col-sm-12">
-            <img class="img" src="../img/PLAYSTATION/batman arkham knight.jpeg" alt="sin imagen"><h4 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">BATMAN ARKHAM KNIGHT</h4>
+            <img class="img" src="{% static 'extension./img/PLAYSTATION/batman arkham knight.jpeg' %}" alt="sin imagen"><h4 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">BATMAN ARKHAM KNIGHT</h4>
            </div> 
            <div class="col-md-8 col-sm-12" style="margin-top: 7%;">
             <table class="table-responsive" >
@@ -90,10 +92,10 @@
 			            ° PlayStation 3</H3>
                 <br>
                 <h2 clasS="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Trailer</h2><br>
-                <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=L63rDlpJ3_o" target="_blank" ><img src="../img/PLAYSTATION/logoYoutube.png"  alt="youtube"  class="logoY" ></a></p>
+                <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=L63rDlpJ3_o" target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
             </div>
             <div class="col-md-8 col-sm-12">
-              <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="comment" form="">Deje su comentario aquí....</textarea></p>
+              <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="comment" form="" placeholder="Deje su comentario aquí...."></textarea></p>
               <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input type="submit" value="Enviar" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);" ></p>
 
             </div>
@@ -103,7 +105,7 @@
         <div class="col-md-4 col-sm-12">
           <h2 class="centrar , letraVJ" style="background-color: rgba(255, 255, 255, 0.9);margin-right: 30%;">Tiendas disponibles</h2><br>
                 <p style="margin-left: 26%;" ><a href="https://store.playstation.com/es-cl/product/UP1018-CUSA00133_00-BATMANARKHAMKNHT?gclid=Cj0KCQjwt_qgBhDFARIsABcDjOfOLIopViOAxLGw5ixfwnKsifY-slwBNczpP57PHfdhNGfld0SYGbwaAmpoEALw_wcB&gclsrc=aw.ds" target="_blank">
-                    <img src="../img/PLAYSTATION/logoplay.jpg" alt="Juego Play" class="logoY"></a></p>
+                    <img src="{% static 'extension./img/PLAYSTATION/logoplay.jpg' %}" alt="Juego Play" class="logoY"></a></p>
         </div>
         <div class="col-md-8 col-sm-12"></div>
         

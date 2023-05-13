@@ -30,5 +30,13 @@ def Pc(request):
     return render(request,'extension/Exclusivo PC/pc.html')
 def Nintendo(request):
     return render(request,'extension/Exclusivo Nintendo/nintendo.html')
+def Batman(request):
+    return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html')
+def DeadR(request):
+    return render(request,'extension/Exclusivo Xbox/deadrising.html')
+def Animal(request):
+    return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html')
+def BMesa(request):
+    return render(request,'extension/Exclusivo PC/BLACK MESA.html')
 
     

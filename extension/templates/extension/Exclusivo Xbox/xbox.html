@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   {% load static %}
-s    <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -21,46 +21,47 @@ s    <meta charset="UTF-8">
 <body class="fondoX , cuX" >
     <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h3>GameTopia</h3>
-        <a class="navbar-brand" href="../Pantalla.html" style="margin-left: 25px;">Inicio</a>
+        <a class="navbar-brand" href="{% url 'Pantalla' %}" style="margin-left: 25px;">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link , cuP1"  href="../Exclusivo Play/playstation.html">PlayStation <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                  <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
+                          class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link , cuX1" href="../Exclusivo Xbox/xbox.html">Xbox</a>
+                  <a class="nav-link , cuX1" href="{% url 'xbox' %}">Xbox</a>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link disabled , cuN1" href="../Exclusivo Nintendo/nintendo.html">Nintendo</a>
-                </li>
-              <li class="nav-item active">
-                  <a class="nav-link disabled , cuPC1"  href="../Exclusivo PC/pc.html">PC</a>
+                  <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' %}">Nintendo</a>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link disabled , cu1" href="../Contacto.html">Contactanos</a>
+                  <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
               </li>
-              <li class="nav-item dropdown active , cu1">
-                <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Perfil
-                </a>
-                <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item , cu1" href="../Login.html">Iniciar Sesion</a>
-                  <a class="dropdown-item , cu1" href="../Registrarse.html">Registrarse</a>
-                  <a class="dropdown-item , cu1" href="../ver perfil.html">Ver perfil</a>
-                  <a class="dropdown-item , cu1" href="../Modificar.html">Modificar Perfil</a>
-                  <a class="dropdown-item , cu1" href="../administrador.html">Perfil Administrador</a>
-                </div>
-              </li>
-              
-            </ul>
-            <form class="form-inline my-2 my-lg-0 , cuX1">
-              <input class="form-control mr-sm-2 , cuX1" type="search" placeholder="Buscar..." aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0 , cuX1" type="submit"><img src="../img/CURSOR/lupa.png"  alt="sin imagen" class="img"></button>
-            </form>
+              <li class="nav-item active">
+                <a class="nav-link , cu1 , " href="{% url 'Contacto' %}">Contactanos</a>
+            </li>
+            <li class="nav-item dropdown active , cu1">
+              <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Perfil
+              </a>
+              <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item , cu1" href="{% url 'Login' %}">Iniciar Sesion</a>
+                <a class="dropdown-item , cu1" href="{% url 'Registrarse' %}">Registrarse</a>
+                <a class="dropdown-item , cu1" href="{% url 'VerPerfil' %}">Ver perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Modificar' %}">Modificar Perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Administrador' %}">Perfil Administrador</a>
+            </div>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 , cuN1" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 , cuN1" type="submit"><img src="{% static 'extension./img/CURSOR/lupa.png' %}"  alt="sin imagen" class="img"></button>
+          </form>
           </div>
         </nav></div>
 
@@ -72,31 +73,31 @@ s    <meta charset="UTF-8">
         </div><br><br>
         
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/deadrising.html" ><img src="../img/XBOX/DEAD RISING.jpg"  alt="sin imagen" class="img"><br><p class="letraX">DEAD RISING</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/DESTINY.html" ><img src="../img/XBOX/DESTINY.jpg"  alt="sin imagen" class="img" ><br><p class="letraX" > DESTINY</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/GEARS OF WAR 3.html" ><img src="../img/XBOX/GEARS OF WAR 3.jpg"  alt="sin imagen" class="img"><br><p class="letraX">GEARS OF WAR 3</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/HALO INFINITE.html" ><img src="../img/XBOX/HALO INFINITE.jpg"  alt="sin imagen" class="img"><br><p class="letraX">HALO INFINITE</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'DeadR' %}" ><img src="{% static 'extension./img/XBOX/DEAD RISING.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">DEAD RISING</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/DESTINY.html" ><img src="{% static 'extension./img/XBOX/DESTINY.jpg' %}"  alt="sin imagen" class="img" ><br><p class="letraX" > DESTINY</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/GEARS OF WAR 3.html" ><img src="{% static 'extension./img/XBOX/GEARS OF WAR 3.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">GEARS OF WAR 3</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/HALO INFINITE.html" ><img src="{% static 'extension./img/XBOX/HALO INFINITE.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">HALO INFINITE</p></a></div>
         </div><br><br>
           
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/LEFT 4 DEAD.html" ><img src="../img/XBOX/LEFT 4 DEAD.JPG"  alt="sin imagen" class="img"><br><p class="letraX">LEFT 4 DEAD</p></a> </div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/GEARS OF WAR 4.html" ><img src="../img/XBOX/GEARS OF WAR 4.jpg"  alt="sin imagen" class="img"><br><p class="letraX">GEARS OF WAR 4</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/MINECRAFT.html" ><img src="../img/XBOX/MINECRAFT.jpg"  alt="sin imagen" class="img"><br><p class="letraX">MINECRAFT</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/GEARS 5.html" ><img src="../img/XBOX/gears5.jfif"  alt="sin imagen" class="img"><br><p class="letraX">GEARS 5</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/LEFT 4 DEAD.html" ><img src="{% static 'extension./img/XBOX/LEFT 4 DEAD.JPG' %}"  alt="sin imagen" class="img"><br><p class="letraX">LEFT 4 DEAD</p></a> </div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/GEARS OF WAR 4.html" ><img src="{% static 'extension./img/XBOX/GEARS OF WAR 4.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">GEARS OF WAR 4</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/MINECRAFT.html" ><img src="{% static 'extension./img/XBOX/MINECRAFT.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">MINECRAFT</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/GEARS 5.html" ><img src="{% static 'extension./img/XBOX/gears5.jfif' %}"  alt="sin imagen" class="img"><br><p class="letraX">GEARS 5</p></a></div>
         </div><br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/A PLAGUE TALE.html" ><img src="../img/XBOX/A PLAGUE TALE.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">A PLAGUE TALE </p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/FORZA MOTORSPORT 5.html" ><img src="../img/XBOX/forza motorsport.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">FORZA MOTORSPORT 5</p> </a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/HADES.html" ><img src="../img/XBOX/HADES.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">HADES</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/HELLBLADE.html" ><img src="../img/XBOX/HELLBLADE.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">HELLBLADE</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/A PLAGUE TALE.html" ><img src="{% static 'extension./img/XBOX/A PLAGUE TALE.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">A PLAGUE TALE </p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/FORZA MOTORSPORT 5.html" ><img src="{% static 'extension./img/XBOX/forza motorsport.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">FORZA MOTORSPORT 5</p> </a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/HADES.html" ><img src="{% static 'extension./img/XBOX/HADES.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">HADES</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/HELLBLADE.html" ><img src="{% static 'extension./img/XBOX/HELLBLADE.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">HELLBLADE</p></a></div>
         </div><br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/PROTOTYPE.html" ><img src="../img/XBOX/PROTOTYPE.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">PROTOTYPE </p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/PAYDAY 2.html" ><img src="../img/XBOX/PAYDAY 2.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">PAYDAY 2</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/NO MANS SKY.html" ><img src="../img/XBOX/NO MANS SKY.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">NO MANS SKY</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1"  href="../Exclusivo Xbox/MORTAL KOMBAT 11.html" ><img src="../img/XBOX/MORTAL KOMBAL 11.jpeg"  alt="sin imagen" class="img"><br><p class="letraX">MORTAL KOMBAT 11</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/PROTOTYPE.html" ><img src="{% static 'extension./img/XBOX/PROTOTYPE.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">PROTOTYPE </p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/PAYDAY 2.html" ><img src="{% static 'extension./img/XBOX/PAYDAY 2.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">PAYDAY 2</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="../Exclusivo Xbox/NO MANS SKY.html" ><img src="{% static 'extension./img/XBOX/NO MANS SKY.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">NO MANS SKY</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1"  href="../Exclusivo Xbox/MORTAL KOMBAT 11.html" ><img src="{% static 'extension./img/XBOX/MORTAL KOMBAL 11.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letraX">MORTAL KOMBAT 11</p></a></div>
         </div>  
     </div> <br><br>
         

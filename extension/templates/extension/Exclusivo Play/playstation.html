@@ -20,46 +20,47 @@
 <body class="fondoP , cuP">
     <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h3>GameTopia</h3>
-        <a class="navbar-brand" href="../Pantalla.html" style="margin-left: 25px;">Inicio</a>
+        <a class="navbar-brand" href="{% url 'Pantalla' %}" style="margin-left: 25px;">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link , cuP1"  href="../Exclusivo Play/playstation.html">PlayStation <span class="sr-only">(current)</span></a>
+              <li class="nav-item active">
+                  <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
+                          class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link , cuX1" href="../Exclusivo Xbox/xbox.html">Xbox</a>
+                  <a class="nav-link , cuX1" href="{% url 'xbox' %}">Xbox</a>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link disabled , cuN1" href="../Exclusivo Nintendo/nintendo.html">Nintendo</a>
-                </li>
-              <li class="nav-item active">
-                  <a class="nav-link disabled , cuPC1"  href="../Exclusivo PC/pc.html">PC</a>
+                  <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' %}">Nintendo</a>
               </li>
               <li class="nav-item active">
-                  <a class="nav-link disabled , cu1" href="../Contacto.html">Contactanos</a>
+                  <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
               </li>
-              <li class="nav-item dropdown active , cu1">
-                <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Perfil
-                </a>
-                <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item , cu1" href="../Login.html">Iniciar Sesion</a>
-                  <a class="dropdown-item , cu1" href="../Registrarse.html">Registrarse</a>
-                  <a class="dropdown-item , cu1" href="../ver perfil.html">Ver perfil</a>
-                  <a class="dropdown-item , cu1" href="../Modificar.html">Modificar Perfil</a>
-                  <a class="dropdown-item , cu1" href="../administrador.html">Perfil Administrador</a>
-                </div>
-              </li>
-              
-            </ul>
-            <form class="form-inline my-2 my-lg-0 , cuP1">
-              <input class="form-control mr-sm-2 , cuP1" type="search" placeholder="Buscar..." aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0 , cuP1" type="submit"><img src="../img/CURSOR/lupa.png"  alt="sin imagen" class="img"></button>
-            </form>
+              <li class="nav-item active">
+                <a class="nav-link , cu1 , " href="{% url 'Contacto' %}">Contactanos</a>
+            </li>
+            <li class="nav-item dropdown active , cu1">
+              <a class="nav-link dropdown-toggle , cu1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Perfil
+              </a>
+              <div class="dropdown-menu , cu1" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item , cu1" href="{% url 'Login' %}">Iniciar Sesion</a>
+                <a class="dropdown-item , cu1" href="{% url 'Registrarse' %}">Registrarse</a>
+                <a class="dropdown-item , cu1" href="{% url 'VerPerfil' %}">Ver perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Modificar' %}">Modificar Perfil</a>
+                <a class="dropdown-item , cu1" href="{% url 'Administrador' %}">Perfil Administrador</a>
+            </div>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 , cuN1" type="search" placeholder="Buscar..." aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 , cuN1" type="submit"><img src="{% static 'extension./img/CURSOR/lupa.png' %}"  alt="sin imagen" class="img"></button>
+          </form>
           </div>
         </nav></div>
 
@@ -71,31 +72,31 @@
         </div><br><br>
         
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html" ><img src="../img/PLAYSTATION/batman arkham knight.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">BATMAN ARKHAM KNIGHT</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/BIOMUTANT.HTML" ><img src="../img/PLAYSTATION/biomutant.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">BIOMUTANT</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/CHRONOS BEFORE THE ASHES.html" ><img src="../img/PLAYSTATION/chronos before the ashes.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">CHRONOS BEFORE THE ASHES</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/DEMOS'N SOULS.html" ><img src="../img/PLAYSTATION/demons souls.jpeg"  alt="sin imagen" class="img" ><br><p class="letrap">DEMOS'N SOULS</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="{% url 'Batman' %}" ><img src="{% static 'extension./img/PLAYSTATION/batman arkham knight.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">BATMAN ARKHAM KNIGHT</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/BIOMUTANT.HTML" ><img src="{% static 'extension./img/PLAYSTATION/biomutant.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">BIOMUTANT</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/CHRONOS BEFORE THE ASHES.html" ><img src="{% static 'extension./img/PLAYSTATION/chronos before the ashes.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">CHRONOS BEFORE THE ASHES</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/DEMOS'N SOULS.html" ><img src="{% static 'extension./img/PLAYSTATION/demons souls.jpeg' %}"  alt="sin imagen" class="img" ><br><p class="letrap">DEMOS'N SOULS</p></a></div>
         </div><br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/DETROIT BECOME HUMAN.html" ><img src="../img/PLAYSTATION/detroit become human.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">DETROIT BECOME HUMAN</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/GHOST OF TSUSHIMA.html" ><img src="../img/PLAYSTATION/ghost os tsushima.jpeg"  alt="sin imagen" class="img" ><br><p class="letrap">GHOST OF TSUSHIMA</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/GOD OF WAR RAGNAROK.html" ><img src="../img/PLAYSTATION/GOD OF WAR RAGNAROK.jpeg"  alt="sin imagen" class="img" ><br><p class="letrap">GOD OF WAR RAGNAROK</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/GOD OF WAR.html" ><img src="../img/PLAYSTATION/god of war.jpeg"  alt="sin imagen" class="img"><br><p class="letrap"> GOD OF WAR</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/DETROIT BECOME HUMAN.html" ><img src="{% static 'extension./img/PLAYSTATION/detroit become human.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">DETROIT BECOME HUMAN</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/GHOST OF TSUSHIMA.html" ><img src="{% static 'extension./img/PLAYSTATION/ghost os tsushima.jpeg' %}"  alt="sin imagen" class="img" ><br><p class="letrap">GHOST OF TSUSHIMA</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/GOD OF WAR RAGNAROK.html" ><img src="{% static 'extension./img/PLAYSTATION/GOD OF WAR RAGNAROK.jpeg' %}"  alt="sin imagen" class="img" ><br><p class="letrap">GOD OF WAR RAGNAROK</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/GOD OF WAR.html" ><img src="{% static 'extension./img/PLAYSTATION/god of war.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap"> GOD OF WAR</p></a></div>
         </div><br><br>
 
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/HORIZON FORBIDES WEST.html" ><img src="../img/PLAYSTATION/horizon forbides west.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">HORIZON FORBIDES WEST</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/HORIZON ZERO DAWN.html" ><img src="../img/PLAYSTATION/horizon zero dawn.jpeg"  alt="sin imagen" class="img"><br><P class="letrap">HORIZON ZERO DAWN</P></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/KINGDOMS OF AMALUR.html" ><img src="../img/PLAYSTATION/kingdoms of amalur.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">KINGDOMS OF AMALUR</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/MAFIA II.html" ><img src="../img/PLAYSTATION/mafia ll.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">MAFIA II</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/HORIZON FORBIDES WEST.html" ><img src="{% static 'extension./img/PLAYSTATION/horizon forbides west.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">HORIZON FORBIDES WEST</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/HORIZON ZERO DAWN.html" ><img src="{% static 'extension./img/PLAYSTATION/horizon zero dawn.jpeg' %}"  alt="sin imagen" class="img"><br><P class="letrap">HORIZON ZERO DAWN</P></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/KINGDOMS OF AMALUR.html" ><img src="{% static 'extension./img/PLAYSTATION/kingdoms of amalur.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">KINGDOMS OF AMALUR</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/MAFIA II.html" ><img src="{% static 'extension./img/PLAYSTATION/mafia ll.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">MAFIA II</p></a></div>
         </div><br><br> 
         
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/SPIDERMAN.html" ><img src="../img/PLAYSTATION/spiderman.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">SPIDERMAN</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/THE LAST OF US.html" ><img src="../img/PLAYSTATION/the last of as part ll.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">THE LAST OF US PART II</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/THE SURGE 2.html" ><img src="../img/PLAYSTATION/the surge 2.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">THE SURGE 2</p></a></div>
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/ZOMBIE DRIVER.html" ><img src="../img/PLAYSTATION/zombie driver.jpeg"  alt="sin imagen" class="img"><br><p class="letrap">ZOMBIE DRIVER</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/SPIDERMAN.html" ><img src="{% static 'extension./img/PLAYSTATION/spiderman.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">SPIDERMAN</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/THE LAST OF US.html" ><img src="{% static 'extension./img/PLAYSTATION/the last of as part ll.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">THE LAST OF US PART II</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/THE SURGE 2.html" ><img src="{% static 'extension./img/PLAYSTATION/the surge 2.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">THE SURGE 2</p></a></div>
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="../Exclusivo Play/ZOMBIE DRIVER.html" ><img src="{% static 'extension./img/PLAYSTATION/zombie driver.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">ZOMBIE DRIVER</p></a></div>
         </div><br><br>  
 
 
