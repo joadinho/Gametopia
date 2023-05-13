@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,Registrarse,Administrador,Agregar,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,Xbox,Play,Pc,Nintendo
+from .views import Pantalla,Registrarse,Administrador,Agregar,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo
 
 urlpatterns = [
     path('',Pantalla,name="Pantalla"),
@@ -13,7 +13,7 @@ urlpatterns = [
     path('Olvidado',Olvidado,name="Olvidado"),
     path('VerPerfil',VerPerfil,name="VerPerfil"),
     path('WebServices',WebServices,name="WebServices"),
-    path('Xbox',Xbox,name="Xbox"),
+    path('xbox',xbox,name="xbox"),
     path('Play',Play,name="Play"),
     path('Pc',Pc,name="Pc"),
     path('Nintendo',Nintendo,name="Nintendo"),

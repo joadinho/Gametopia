@@ -22,13 +22,13 @@ def VerPerfil(request):
     return render(request,'extension/ver perfil.html')
 def WebServices(request):
     return render(request,'extension/webServices.html')
-def Xbox(request):
-    return render(request,'extension/xbox.html')
+def xbox(request):
+    return render(request,'extension/Exclusivo Xbox/xbox.html')
 def Play(request):
-    return render(request,'extension/playstation.html')
+    return render(request,'extension/Exclusivo Play/playstation.html')
 def Pc(request):
-    return render(request,'extension/pc.html')
+    return render(request,'extension/Exclusivo PC/pc.html')
 def Nintendo(request):
-    return render(request,'extension/nintendo.html')
+    return render(request,'extension/Exclusivo Nintendo/nintendo.html')
 
     
