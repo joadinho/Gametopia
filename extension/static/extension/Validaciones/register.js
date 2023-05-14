@@ -7,7 +7,7 @@ $(document).ready(function(){
         var con_clave = $("#con_password").val();
         var correo    = $("#email").val();
         var contacto  = $("#telefono").val();
-        var edad      = $("#edad").val();       
+        var f_nac     = $("#fecha").val();       
         
         let msjMostrar = "";
         let enviar = false;
@@ -112,7 +112,7 @@ $(document).ready(function(){
         var emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/; 
 
         if (!emailRegex.test(correo)) {
-            msjMostrar += "<br>-No debe comenzar con @";
+            msjMostrar += "<br>-El correo No debe comenzar con @";
             enviar = true;
         }
 
@@ -141,13 +141,28 @@ $(document).ready(function(){
 
         
 
-        //validar edad
-        
-        if(edad < 15){
-            msjMostrar += "<br>-Para registrarse debe tener una edad mínima de 15 años. ";
-            enviar = true;
+        //validar fecha de nacimiento
+
+        if(Date.parse(f_nac)){
+            var edadMilisegundos = Date.now() - Date.parse(f_nac);
+            var edad = new Date(edadMilisegundos).getUTCFullYear() - 1970;
+            if (edad >= 18){
+                //El usuario tiene al menos 18 años
+            }else{
+                msjMostrar += "<br>-Debe tener al menos 18 años para registrarse";
+                enviar = true;
+            }
+        }else{
 
         }
+
+
+
+        //if(edad < 15){
+          //  msjMostrar += "<br>-Para registrarse debe tener una edad mínima de 15 años. ";
+           // enviar = true;
+
+      //  }
         
 
         if(enviar){
