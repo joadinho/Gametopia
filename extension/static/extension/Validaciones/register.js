@@ -155,14 +155,6 @@ $(document).ready(function(){
         }else{
 
         }
-
-
-
-        //if(edad < 15){
-          //  msjMostrar += "<br>-Para registrarse debe tener una edad mínima de 15 años. ";
-           // enviar = true;
-
-      //  }
         
 
         if(enviar){
