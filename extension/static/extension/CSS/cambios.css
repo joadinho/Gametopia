@@ -200,14 +200,6 @@ table, th, td {
   cursor: url(../img/CURSOR/cuN1.png),auto;
 }
 
-/*Cursor general*/
-.cu{
-  cursor: url(../img/CURSOR/CURSOR.png),auto;
-}
-.cu1{
-  cursor: url(../img/CURSOR/CURSOR1.png),auto;
-}
-
 /*Margen iniciar*/
 .margenI{
   margin-left: 110px;
