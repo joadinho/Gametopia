@@ -38,5 +38,7 @@ def Animal(request):
     return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html')
 def BMesa(request):
     return render(request,'extension/Exclusivo PC/BLACK MESA.html')
+def plantillaMenu(request):
+    return render(request,'extension/plantillaMenu.html')
 
     
