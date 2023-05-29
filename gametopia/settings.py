@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'gametopia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '127.0.0.1:1521/orcl',
+        'NAME': '127.0.0.1:1521/xe',
         'USER':'gametopia',
         'PASSWORD':'123456789',
         'TEST': {
