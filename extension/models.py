@@ -34,7 +34,7 @@ class usuario(models.Model):
 class videojuego(models.Model):
     id_videojuego = models.AutoField(primary_key = True, verbose_name='id videojuego')
     nombreV       = models.CharField(max_length=40, verbose_name='nombre videojuego')
-    descripcion   = models.CharField(max_length=2500, verbose_name='descripcion videojuego')
+    descripcion   = models.CharField(max_length=500, verbose_name='descripcion videojuego')
     fecha_lanz    = models.DateField(verbose_name='fecha lanzamiento')
     trailer       = models.CharField(max_length=500, verbose_name='trailer videojuego')
     foto          = models.ImageField(upload_to="portada videojuego")
@@ -53,7 +53,7 @@ class valoracion(models.Model):
 class comentario(models.Model):
     id_comentario     = models.AutoField(primary_key = True, verbose_name='id comentario')
     fecha_comentario  = models.DateField(verbose_name='fecha de comentario')
-    comentario = models.CharField(max_length=2500, verbose_name='comentario')
+    comentarios = models.CharField(max_length=500, verbose_name='comentario')
     tituloC           = models.CharField(max_length=30, verbose_name='')
     usuario_id_usuario = models.ForeignKey(usuario,on_delete=models.CASCADE)
     videojuego_id_videojuego = models.ForeignKey(videojuego,on_delete=models.CASCADE)
