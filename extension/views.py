@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import pregunta, rol, usuario, videojuego, valoracion, comentario, plataforma, plat_video, tienda, vid_tienda
 
 # Create your views here.
 def Pantalla(request):
@@ -41,4 +42,14 @@ def BMesa(request):
 def plantillaMenu(request):
     return render(request,'extension/plantillaMenu.html')
 
-    
+def formAgregarJ(request):
+    vIdjuego = request.POST['id_juego']
+    vNombreJ = request.POST['NombreJ']
+    vDescripcion = request.POST['DescripcionJ']
+    vFechaJ      = request.POST['FechaJ']
+    vTrailer     = request.POST['TraileJ']
+    vFotoJ       = request.POST['SeleccioneJ']
+
+    videojuego.objects.create(id_videojuego=vIdjuego, nombreV=vNombreJ, descripcion=vDescripcion, fecha_lanz=vFechaJ, trailer=vTrailer, foto=vFotoJ)
+    return render(request, 'extension/AgregarJuego.html')
+     

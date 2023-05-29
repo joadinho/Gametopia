@@ -28,30 +28,38 @@
       <div class="row">
         <div class="col-md-3 col-sm-3"></div>
         <div class="col-md-6 col-sm-6" style="margin-top: 20px;">
-          <form action="#" method="POST" id="formJuego" class="fondoform">
+          <form action="{% url 'formAgregarJ' %}" method="POST" id="formJuego" class="fondoform">
             {% csrf_token %}
             <div class="form">
               <h1 class="centrar letraLo">Agrega un juego </h1>
             </div>
+
+            <div class="grupo">
+              <input type="number" name="id_juego" id="id_juego"><span class="barra" ></span>
+              <label for=""><h5>ID videojuego</h5></label>
+            </div>
+
               <div class="grupo">
-                <input type="text" name="" id="NombreJ"><span class="barra" ></span>
+                <input type="text" name="NombreJ" id="NombreJ"><span class="barra" ></span>
                 <label for=""><h5>Nombre del juego</h5></label>
               </div>
                     <div class="grupo">
-                      <input type="text" name="" id="DescripcionJ"><span class="barra" ></span>
+                      <input type="text" name="DescripcionJ" id="DescripcionJ"><span class="barra" ></span>
                       <label for=""><h5>Descripción</h5></label>
                     </div>
+
                     <div class="grupo">
-                      <input type="text" name="" id="PlataformaJ"><span class="barra" ></span>
-                      <label for=""><h5>Plataformas disponibles</h5></label>
+                      <input type="date" name="FechaJ" id="FechaJ"><span class="barra" ></span>
+                      <label for=""><h5>Fecha de lanzamiento</h5></label>
                     </div>
+                    
                     <div class="grupo">
-                      <input type="text" name="" id="TrailerJ"><span class="barra" ></span>
+                      <input type="text" name="TrailerJ" id="TrailerJ"><span class="barra" ></span>
                       <label for=""><h5>Links</h5></label>
                     </div>
                     <div class="grupo">
                       <label for="exampleFormControlFile1"><h5>Seleccione foto del juego</h5></label>
-                      <input accept="image/png, image/jpeg" type="file" class="barra" id="SeleccioneJ">
+                      <input accept="image/png, image/jpeg" type="file" class="barra" id="SeleccioneJ" name="SeleccioneJ">
                     </div>  
         <div class="col-md-3 col-sm-3"></div>
               <div class="row">
