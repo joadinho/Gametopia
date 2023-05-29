@@ -27,8 +27,8 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-12 col-sm-12">
                 
-                  <form action="#" method="POST" id="formregister" class="fondoform" enctype="multipart/form-data">
-                    
+                <form action="#" method="POST" id="formregister" class="fondoform" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <h1 class="centrar letraLo" >Regístrate</h1><br>
                     <div class="form"></div>
                     <div class="grupo">
