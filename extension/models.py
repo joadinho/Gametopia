@@ -18,7 +18,7 @@ class rol(models.Model):
     
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key = True, verbose_name='id de usuario')
-    nombreU    = models.CharField(max_length=30, verbose_name='nombre usuario')
+    nombreU   = models.CharField(max_length=30, verbose_name='nombre usuario')
     apellido  = models.CharField(max_length=30, verbose_name='apellido usuario')
     rut       = models.IntegerField(verbose_name='rut usario')
     correo    = models.CharField(max_length=40, verbose_name='correo usuario' )
@@ -53,7 +53,7 @@ class valoracion(models.Model):
 class comentario(models.Model):
     id_comentario     = models.AutoField(primary_key = True, verbose_name='id comentario')
     fecha_comentario  = models.DateField(verbose_name='fecha de comentario')
-    comentarios = models.CharField(max_length=500, verbose_name='comentario')
+    comentarios = models.CharField(max_length=2500, verbose_name='comentario')
     tituloC           = models.CharField(max_length=30, verbose_name='')
     usuario_id_usuario = models.ForeignKey(usuario,on_delete=models.CASCADE)
     videojuego_id_videojuego = models.ForeignKey(videojuego,on_delete=models.CASCADE)

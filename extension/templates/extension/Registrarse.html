@@ -31,43 +31,49 @@
                     {% csrf_token %}
                     <h1 class="centrar letraLo" >Regístrate</h1><br>
                     <div class="form"></div>
+
                     <div class="grupo">
-                      <input type="text" name="" id="nombre"><span class="barra" ></span>
+                      <input type="number" name="id_usuario" id="id_usuario"><span class="barra" ></span>
+                      <label for=""><h5>ID usuario</h5></label>
+                    </div>
+
+                    <div class="grupo">
+                      <input type="text" name="nombre" id="nombre"><span class="barra" ></span>
                       <label for=""><h5>Nombre</h5></label>
                   </div>
                     
                   <div class="grupo">
-                    <input type="text" name="" id="apellido"><span class="barra" ></span>
+                    <input type="text" name="apellido" id="apellido"><span class="barra" ></span>
                     <label for=""><h5>Apellido</h5></label>
                 </div>
 
                 <div class="grupo">
-                  <input type="password" name="" id="password"><span class="barra"></span>
+                  <input type="password" name="password" id="password"><span class="barra"></span>
                   <label for=""><h5>Contraseña</h5></label>
                 </div>
                 <div class="grupo">
-                  <input type="password" name="" id="con_password"><span class="barra"></span>
+                  <input type="password" name="con_password" id="con_password"><span class="barra"></span>
                   <label for=""><h5>Confirmar contraseña</h5></label>
                 </div>
 
                 <div class="grupo">
-                  <input type="text" name="" id="email"><span class="barra" ></span>
+                  <input type="text" name="email" id="email"><span class="barra" ></span>
                   <label for=""><h5>Correo</h5></label>
                 </div>
 
                 <div class="grupo">
-                  <input type="text" name="" id="telefono"><span class="barra" ></span>
+                  <input type="text" name="telefono" id="telefono"><span class="barra" ></span>
                   <label for=""><h5>Teléfono móvil</h5></label>
                 </div>
 
                 <div class="grupo">
-                  <input type="date" name="" id="fecha"><span class="barra" ></span>
+                  <input type="date" name="fecha" id="fecha"><span class="barra" ></span>
                   <label for=""><h5>Fecha de nacimiento</h5></label>
                 </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlFile1" class="letraLo , cu"><h4>Seleccione una foto de perfil</h4></label>
-                        <h5><input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" id="exampleFormControlFile1"></h5>
+                        <h5><input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" id="fotoU" name="fotoU"></h5>
                       </div><br>
                     <div class="row">
                       <div class="col-md-6">

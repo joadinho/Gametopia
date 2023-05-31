@@ -4,7 +4,6 @@ $(document).ready(function(){
         
         var nombreJ      = $("#NombreJ").val();
         var descripcionJ = $("#DescripcionJ").val();
-        var plataformaJ  = $("#PlataformaJ").val();
         var trailerJ     = $("#TrailerJ").val();
 
         let msjMostrarAgregar = "";

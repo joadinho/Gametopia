@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import pregunta, rol, usuario, videojuego, valoracion, comentario, plataforma, plat_video, tienda, vid_tienda
-
+from django.contrib.auth.models import User
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth import authenticate,login, logout
 # Create your views here.
 def Pantalla(request):
     return render(request,'extension/Pantalla.html')
@@ -48,8 +50,19 @@ def formAgregarJ(request):
     vDescripcion = request.POST['DescripcionJ']
     vFechaJ      = request.POST['FechaJ']
     vTrailer     = request.POST['TraileJ']
-    vFotoJ       = request.POST['SeleccioneJ']
+    vFotoJ       = request.FILES['SeleccioneJ']
 
     videojuego.objects.create(id_videojuego=vIdjuego, nombreV=vNombreJ, descripcion=vDescripcion, fecha_lanz=vFechaJ, trailer=vTrailer, foto=vFotoJ)
     return render(request, 'extension/AgregarJuego.html')
-     
+
+def formAgregarU(request):
+    vIdusuario = request.POST['id_usuario']
+    vNombreU = request.POST['nombre']
+    vApellidoU = request.POST['apellido']
+    vClaveU = request.POST['password'] 
+    vCorreoU = request.POST['email']    
+    vTelefonoU = request.POST['telefono']
+    vFechaU = request.POST['fecha']
+    vFotoU = request.FILES['fotoU']
+
+    usuario.objects.create(idUsuario=vIdusuario, nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU)
