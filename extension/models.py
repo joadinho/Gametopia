@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class pregunta(models.Model):
-    id_pregunta = models.IntegerField(primary_key = True, verbose_name='id pregunta')
+    id_pregunta = models.AutoField(primary_key = True, verbose_name='id pregunta')
     nombreP      = models.CharField(max_length=250, verbose_name='nombre pregunta')
 
     def __str__(self)-> str:
@@ -32,6 +32,14 @@ class usuario(models.Model):
     def __str__(self)-> str:
         return self.nombreU
     
+class plataforma(models.Model):
+    id_plataforma = models.AutoField(primary_key = True, verbose_name='id plataforma')
+    nombrePLA        = models.CharField(max_length=100, verbose_name='nombre plataforma')
+
+    def __str__(self)-> str:
+        return self.nombrePLA   
+
+
 class videojuego(models.Model):
     id_videojuego = models.IntegerField(primary_key = True, verbose_name='id videojuego')
     nombreV       = models.CharField(max_length=250, verbose_name='nombre videojuego')
@@ -39,6 +47,7 @@ class videojuego(models.Model):
     trailer       = models.TextField(max_length=1000, verbose_name='trailer videojuego')
     foto          = models.ImageField(upload_to="portada videojuego")
     link      = models.TextField(max_length=1000, verbose_name='link tienda')
+    plataforma_id = models.ForeignKey(plataforma,on_delete=models.CASCADE)
 
     def __str__(self)-> str:
         return self.nombreV
@@ -55,17 +64,8 @@ class comentario(models.Model):
         return self.tituloC
     
 
-class plataforma(models.Model):
-    id_plataforma = models.IntegerField(primary_key = True, verbose_name='id plataforma')
-    nombrePLA        = models.CharField(max_length=100, verbose_name='nombre plataforma')
 
-    def __str__(self)-> str:
-        return self.nombrePLA
     
-class plat_video(models.Model):
-    id_pv = models.IntegerField(primary_key = True, verbose_name='id plataforma videojuego')
-    videojuego_id_videojuego = models.ForeignKey(videojuego,on_delete=models.CASCADE)
-    plataforma_id_platafomra = models.ForeignKey(plataforma,on_delete=models.CASCADE)
 
 
     

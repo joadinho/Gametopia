@@ -27,8 +27,8 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" class="fondoform" enctype="multipart/form-data">
-                    {% csrf_token %}
+                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
+                  {% csrf_token %}
                     <h1 class="centrar letraLo" >Regístrate</h1><br>
                     <div class="form"></div>
 
@@ -60,7 +60,7 @@
                   <label>Preguntas</label>
                  <select class="form-control" name="pregunta" id="pregunta">
                      {% for x in preguntas %}
-                     <option value="{{ x.codigoP }}">{{ x.nombreP }}</option>
+                     <option value="{{ x.codigo }}">{{ x.nombreP }}</option>
                      {% endfor %}
                  </select>
               </div>
