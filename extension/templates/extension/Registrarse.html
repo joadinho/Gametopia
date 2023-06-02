@@ -27,15 +27,10 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="#" method="POST" id="formregister" class="fondoform" enctype="multipart/form-data">
+                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" class="fondoform" enctype="multipart/form-data">
                     {% csrf_token %}
                     <h1 class="centrar letraLo" >Regístrate</h1><br>
                     <div class="form"></div>
-
-                    <div class="grupo">
-                      <input type="number" name="id_usuario" id="id_usuario"><span class="barra" ></span>
-                      <label for=""><h5>ID usuario</h5></label>
-                    </div>
 
                     <div class="grupo">
                       <input type="text" name="nombre" id="nombre"><span class="barra" ></span>
@@ -59,6 +54,20 @@
                 <div class="grupo">
                   <input type="text" name="email" id="email"><span class="barra" ></span>
                   <label for=""><h5>Correo</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <label>Preguntas</label>
+                 <select class="form-control" name="pregunta" id="pregunta">
+                     {% for x in preguntas %}
+                     <option value="{{ x.codigoP }}">{{ x.nombreP }}</option>
+                     {% endfor %}
+                 </select>
+              </div>
+
+                <div class="grupo">
+                  <input type="text" name="respuesta" id="respuesta"><span class="barra" ></span>
+                  <label for=""><h5>Respuesta</h5></label>
                 </div>
 
                 <div class="grupo">

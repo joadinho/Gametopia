@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import pregunta, rol, usuario, videojuego, comentario, plataforma, plat_video
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
@@ -44,6 +44,14 @@ def BMesa(request):
 def plantillaMenu(request):
     return render(request,'extension/plantillaMenu.html')
 
+def agregarP(request):
+    listaPreguntas = pregunta.objects.all()
+    contexto = {
+        "preguntas": listaPreguntas
+    }
+
+    return render(request,'extension/Registrarse.html', contexto)
+
 def formAgregarJ(request):
     vIdjuego = request.POST['id_juego']
     vNombreJ = request.POST['NombreJ']
@@ -56,13 +64,15 @@ def formAgregarJ(request):
     return render(request, 'extension/AgregarJuego.html')
 
 def formAgregarU(request):
-    vIdusuario = request.POST['id_usuario']
     vNombreU = request.POST['nombre']
     vApellidoU = request.POST['apellido']
     vClaveU = request.POST['password'] 
+    vPregunta=request.POST['pregunta']
     vCorreoU = request.POST['email']    
     vTelefonoU = request.POST['telefono']
     vFechaU = request.POST['fecha']
     vFotoU = request.FILES['fotoU']
 
-    usuario.objects.create(idUsuario=vIdusuario, nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU)
+    vRegistroPregunta = pregunta.objects.get(codigoP = vPregunta)
+    usuario.objects.create(nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU, correo=vCorreoU, telefono=vTelefonoU, fechaU=vFechaU, fotoU=vFotoU, pregunta_id_pregunta=vRegistroPregunta) 
+    return redirect('Registrarse')
