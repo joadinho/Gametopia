@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import pregunta, rol, usuario, videojuego, valoracion, comentario, plataforma, plat_video, tienda, vid_tienda
+from .models import pregunta, rol, usuario, videojuego, comentario, plataforma, plat_video
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate,login, logout
