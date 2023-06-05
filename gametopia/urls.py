@@ -21,6 +21,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path ('', include('extension.urls')),
+    path ('api/', include('gametopia1.urls')),
+]
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
     path('',include('extension.urls')),
 ]
 

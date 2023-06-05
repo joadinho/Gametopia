@@ -3,7 +3,9 @@ from .models import pregunta, rol, usuario, videojuego, comentario, plataforma
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate,login, logout
+
 # Create your views here.
+
 def Pantalla(request):
     return render(request,'extension/Pantalla.html')
 
