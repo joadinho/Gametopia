@@ -34,11 +34,6 @@
               <h1 class="centrar letraLo">Agrega un juego </h1>
             </div>
 
-            <div class="grupo">
-              <input type="number" name="id_juego" id="id_juego"><span class="barra" ></span>
-              <label for=""><h5>ID videojuego</h5></label>
-            </div>
-
               <div class="grupo">
                 <input type="text" name="NombreJ" id="NombreJ"><span class="barra" ></span>
                 <label for=""><h5>Nombre del juego</h5></label>
@@ -55,8 +50,8 @@
                     </div>
 
                     <div class="grupo">
-                      <label for="exampleFormControlFile1"><h5>Seleccione foto del juego</h5></label>
-                      <input accept="image/png, image/jpeg" type="file" class="barra" id="SeleccioneJ" name="SeleccioneJ">
+                      <label ><h5>Seleccione foto del juego</h5></label>
+                      <input accept=".jpg, .png, .jpeg" type="file" class="barra" id="SeleccioneJ" name="SeleccioneJ">
                     </div>
                     <div class="grupo">
                       <input type="text" name="LinkJ" id="LinkJ"><span class="barra" ></span>
@@ -67,7 +62,7 @@
                       <label>Plataforma</label>
                      <select class="form-control" name="plataforma" id="plataforma">
                          {% for z in Plataformas %}
-                         <option value="{{ z.codigoJ }}">{{ z.nombrePLA }}</option>
+                         <option value="{{ z.id_plataforma }}">{{ z.nombrePLA }}</option>
                          {% endfor %}
                      </select>
                   </div>

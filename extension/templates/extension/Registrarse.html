@@ -60,7 +60,7 @@
                   <label>Preguntas</label>
                  <select class="form-control" name="pregunta" id="pregunta">
                      {% for x in preguntas %}
-                     <option value="{{ x.codigo }}">{{ x.nombreP }}</option>
+                     <option value="{{ x.id_pregunta }}">{{ x.nombreP }}</option>
                      {% endfor %}
                  </select>
               </div>

@@ -41,11 +41,11 @@ class plataforma(models.Model):
 
 
 class videojuego(models.Model):
-    id_videojuego = models.IntegerField(primary_key = True, verbose_name='id videojuego')
+    id_videojuego = models.AutoField(primary_key = True, verbose_name='id videojuego')
     nombreV       = models.CharField(max_length=250, verbose_name='nombre videojuego')
     descripcion   = models.TextField(max_length=4000, verbose_name='descripcion videojuego')
     trailer       = models.TextField(max_length=1000, verbose_name='trailer videojuego')
-    foto          = models.ImageField(upload_to="portada videojuego")
+    foto          = models.ImageField(upload_to="portada_videojuego")
     link      = models.TextField(max_length=1000, verbose_name='link tienda')
     plataforma_id = models.ForeignKey(plataforma,on_delete=models.CASCADE)
 
