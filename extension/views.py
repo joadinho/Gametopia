@@ -20,17 +20,28 @@ def Registrarse(request):
 def Administrador(request):
     return render(request,'extension/administrador.html')
 def Contacto(request):
-    logout(request)
     return render(request,'extension/Contacto.html')
 def Login(request):
-    
+    logout(request)
     return render(request,'extension/Login.html')
 def Modificar(request):
     return render(request,'extension/Modificar.html')
 def Olvidado(request):
-    return render(request,'extension/olvidado.html')
+    
+    listaPreguntas = pregunta.objects.all()
+    contexto = {
+        "preguntas": listaPreguntas
+    }
+    return render(request,'extension/olvidado.html', contexto)
 def VerPerfil(request):
-    return render(request,'extension/ver perfil.html')
+
+    lista = usuario.objects.all()
+    contexto = {
+        "usuarios": lista
+    }
+
+    return render(request,'extension/ver perfil.html', contexto)
+
 def WebServices(request):
     return render(request,'extension/webServices.html')
 def xbox(request):
@@ -51,6 +62,17 @@ def BMesa(request):
     return render(request,'extension/Exclusivo PC/BLACK MESA.html')
 def plantillaMenu(request):
     return render(request,'extension/plantillaMenu.html')
+
+def formOlvidado(request): 
+    vPregunta=request.POST['pregunta']
+    vRespuesta=request.POST['respuestas']
+    vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
+    usuario.objects.create(pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta) 
+
+    if vRespuesta==usuario.respuesta:
+        return redirect('Modificar')
+    else: 
+        return redirect('Login')
 
     
 

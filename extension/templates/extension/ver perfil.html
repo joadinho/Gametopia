@@ -18,52 +18,41 @@
  
 {% block cuerpo %}
 <div class="container" class="fondo">
-        
-        <div class="row" >
-            <div class="col-md-12 col-sm-12">
-                <h1 class="titulodestacado" >Bienvenido a tu perfil podrás apreciar todos tus datos pasando el mouse sobre tu foto.</h1>
-        <div class="row">
-          <div class="col-md-8 col-sm-12">
-            <br><br><br><br><br><div class="flip-card" >
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <img src="{% static 'extension/img/Perfiles/alvaro.jpg' %}" alt="Avatar" style="width:300px;height:300px;">
-                    </div>
-                    <div class="flip-card-back">
-                      <br><h4 class="letraLo">Alvaro Hernandez</h4> 
-                      <h5><p class="letraLo">alvarito.her@gmail.com</p></h5>
-                      <h5><p class="letraLo">  ********123</p> </h5>
-                      <h5><p class="letraLo">956742347</p></h5>
-                      <h5><p class="letraLo">24 años</p></h5>
-                      <h5><p class="letraLo">25, agosto 1998</p></h5>
-                      <h5><p class="letraLo">Masculino</p></h5>
-                      
-                    </div>
-                    
-                  </div>
-                </div><br><br><br><br><br>
+
+  <div class="row" >
+      <div class="col-md-12 col-sm-12">
+          <h1 class="titulodestacado" >Bienvenido a tu perfil podrás apreciar todos tus datos pasando el mouse sobre tu foto.</h1></div>
+  </div> 
+  <div class="row">
+
+    <div class="col-md-12 col-sm-12">
+      <br><br><br><br><br>
+      
+
+
+      {% for u in usuarios %}
+
+      <div class="flip-card" style="margin-left: 28%;margin-right: 40%;" >
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="{{ u.fotoU.url }}" alt="Avatar" style="width:300px;height:300px;">
+              </div>
+              <div class="flip-card-back"><br>
+
+                <br><h4 class="letraLo">{{ u.nombreU }} {{ u.apellido }}</h4> 
+                <h5><p class="letraLo">{{ u.correo }}</p></h5>
+                <h5><p class="letraLo">{{ u.telefono }}</p> </h5>
+                <h5><p class="letraLo">{{ u.fechaU }}</p></h5>
+                
+
+              </div>
+            </div>
           </div><br><br><br><br><br>
-            <div class="col-md-4 col-sm-12">
-                <br><br><br><br><br><div class="flip-card" >
-                    <div class="flip-card-inner">
-                      <div class="flip-card-front">
-                        <img src="{% static 'extension/img/Perfiles/benito.b.jpg' %}" alt="Avatar" style="width:300px;height:300px;">
-                      </div>
-                      <div class="flip-card-back">
-                        <br><h4 class="letraLo">Benito Benavides</h4> 
-                        <h5><p class="letraLo">B.benavides67@gmail.com</p></h5>
-                        <h5><p class="letraLo">******0Op</p> </h5>
-                        <h5><p class="letraLo">965786189</p></h5>
-                        <h5><p class="letraLo">32 años</p></h5>
-                        <h5><p class="letraLo">2, Diciembre 1990</p></h5>
-                        <h5><p class="letraLo">Masculino</p></h5>
-                        
-                      </div>
-                      
-                    </div>
-                  </div>
-            </div>                
-    </div> 
+          {% endfor %}
+    </div><br><br><br><br><br>
+
+</div>
+</div>
 {% endblock cuerpo %}
 
 {% block script %}

@@ -20,7 +20,7 @@ class usuario(models.Model):
     idUsuario = models.AutoField(primary_key = True, verbose_name='id de usuario')
     nombreU   = models.CharField(max_length=50, verbose_name='nombre usuario')
     apellido  = models.CharField(max_length=50, verbose_name='apellido usuario')
-    correo    = models.TextField(max_length=1000, verbose_name='correo usuario' )
+    correo    = models.EmailField(max_length=254, verbose_name='correo usuario' )
     telefono  = models.IntegerField(verbose_name='telefono usuario')
     clave     = models.CharField(max_length=20, verbose_name='clave usuario')
     fotoU     = models.ImageField(upload_to="Foto Perfil")

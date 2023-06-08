@@ -13,8 +13,8 @@ $(document).ready(function(){
         let enviar = false;
 
         //validar nombre
-        if(nombre.trim().length < 4 || nombre.trim().length > 10){
-            msjMostrar = msjMostrar + "-El nombre debe tener entre 4 y 10 caracteres.";
+        if(nombre.trim().length < 4 || nombre.trim().length > 50){
+            msjMostrar = msjMostrar + "-El nombre debe tener entre 4 y 50 caracteres.";
             enviar = true;
             e.preventDefault();
         }
@@ -40,8 +40,8 @@ $(document).ready(function(){
          }
 
         //Validar Apellido
-        if(apellido.trim().length < 4 || apellido.trim().length > 10){
-            msjMostrar = msjMostrar + "<br>-El apellido debe tener entre 4 y 10 caracteres.";
+        if(apellido.trim().length < 4 || apellido.trim().length > 50){
+            msjMostrar = msjMostrar + "<br>-El apellido debe tener entre 4 y 50 caracteres.";
             enviar = true;
             e.preventDefault();
         }
