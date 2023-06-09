@@ -15,6 +15,19 @@
 {% block fondo %}
 <body class="fondoPP">
 {% endblock fondo %} 
+
+{% block nintendo %}
+<li class="nav-item active">
+    <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' usuarios.idUsuario %}">Nintendo</a>
+</li>
+{% endblock nintendo %}
+
+{% block verperfil %}
+<a class="dropdown-item " href="{% url 'VerPerfil' usuarios.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %}
+{% block Modificarperfil %}
+<a class="dropdown-item " href="{% url 'ModificarP' usuarios.idUsuario %}">Modificar Perfil</a>
+{% endblock Modificarperfil %}
  
 {% block cuerpo %}
 <div class="container" class="fondo">
@@ -30,25 +43,25 @@
       
 
 
-      {% for u in usuarios %}
+      
 
       <div class="flip-card" style="margin-left: 28%;margin-right: 40%;" >
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="{{ u.fotoU.url }}" alt="Avatar" style="width:300px;height:300px;">
+              <img src="{{ usuarios.fotoU.url }}" alt="Avatar" style="width:300px;height:300px;">
               </div>
               <div class="flip-card-back"><br>
 
-                <br><h4 class="letraLo">{{ u.nombreU }} {{ u.apellido }}</h4> 
-                <h5><p class="letraLo">{{ u.correo }}</p></h5>
-                <h5><p class="letraLo">{{ u.telefono }}</p> </h5>
-                <h5><p class="letraLo">{{ u.fechaU }}</p></h5>
+                <br><h4 class="letraLo">{{ usuarios.nombreU }} {{ usuarios.apellido }}</h4> 
+                <h5><p class="letraLo">{{ usuarios.correo }}</p></h5>
+                <h5><p class="letraLo">{{ usuarios.telefono }}</p> </h5>
+                <h5><p class="letraLo">{{ usuarios.fechaU }}</p></h5>
                 
 
               </div>
             </div>
           </div><br><br><br><br><br>
-          {% endfor %}
+          
     </div><br><br><br><br><br>
 
 </div>

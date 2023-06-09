@@ -18,7 +18,10 @@
 
 {% block fondo %}
 <body class="fondoPP">
-{% endblock fondo %} 
+{% endblock fondo %}
+{% block verperfil %}
+<a class="dropdown-item " href="{% url 'VerPerfil' usuarios.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %} 
 
 {% block cuerpo %}
 <div class="container-fluid" class="fondo">
@@ -54,6 +57,13 @@
                     </div>
 
                     <p class="warnings" id="mensaje"></p>
+                    {% if messages %}
+                    <ul   class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
                     
                     <div class="col-md-3 col-sm-12"></div>
                 </form>  

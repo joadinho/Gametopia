@@ -25,7 +25,17 @@ def Login(request):
     logout(request)
     return render(request,'extension/Login.html')
 def Modificar(request):
+
     return render(request,'extension/Modificar.html')
+
+def ModificarP(request,id):
+    lista = usuario.objects.get(idUsuario=id)
+    contexto={
+        "ModificarP":lista
+    }
+
+    return render(request,'extension/ModificarP.html',contexto)
+
 def Olvidado(request):
     
     listaPreguntas = pregunta.objects.all()
@@ -33,9 +43,9 @@ def Olvidado(request):
         "preguntas": listaPreguntas
     }
     return render(request,'extension/olvidado.html', contexto)
-def VerPerfil(request):
+def VerPerfil(request, id):
 
-    lista = usuario.objects.all()
+    lista = usuario.objects.get(idUsuario=id)
     contexto = {
         "usuarios": lista
     }
@@ -50,8 +60,14 @@ def Play(request):
     return render(request,'extension/Exclusivo Play/playstation.html')
 def Pc(request):
     return render(request,'extension/Exclusivo PC/pc.html')
-def Nintendo(request):
-    return render(request,'extension/Exclusivo Nintendo/nintendo.html')
+def Nintendo(request,id):
+    if id==0:
+        return render(request,'extension/Exclusivo Nintendo/nintendo.html')
+    lista = usuario.objects.get(idUsuario=id)
+    contexto = {
+        "usuarios": lista
+    }
+    return render(request,'extension/Exclusivo Nintendo/nintendo.html',contexto)
 def Batman(request):
     return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html')
 def DeadR(request):
@@ -60,22 +76,34 @@ def Animal(request):
     return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html')
 def BMesa(request):
     return render(request,'extension/Exclusivo PC/BLACK MESA.html')
-def plantillaMenu(request):
-    return render(request,'extension/plantillaMenu.html')
+def plantillaMenu(request,id):
+    lista = usuario.objects.get(idUsuario=id)
+    contexto ={
+        "usuarios":lista
 
-def formOlvidado(request): 
-    vPregunta=request.POST['pregunta']
-    vRespuesta=request.POST['respuestas']
-    vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
-    usuario.objects.create(pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta) 
-
-    if vRespuesta==usuario.respuesta:
-        return redirect('Modificar')
-    else: 
-        return redirect('Login')
-
+    }
+    return render(request,'extension/plantillaMenu.html',contexto)
+def formOlvidado(request):
+    try: 
+        vPregunta=request.POST['pregunta']
+        vRespuesta=request.POST['respuestas']
+        vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
+        vVariable = usuario.objects.get(pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta) 
     
 
+        contexto ={ 
+            "olvidado":vVariable
+
+        }
+
+
+        if vRespuesta==vVariable.respuesta:
+            return render(request,'extension/Modificar.html',contexto)
+        else: 
+            return redirect('Login')
+    except usuario.DoesNotExist:
+        messages.error(request, "No hay coincidencias ")
+        return redirect('Olvidado')
 def Agregar(request):
     listaPlataforma = plataforma.objects.all()
     contexto = {
@@ -105,6 +133,60 @@ def formAgregarJ(request):
     if vRegistroPlataforma.id_plataforma==2:
         return redirect ('Nintendo')
     
+def formAgregarM(request):
+    vClaveN = request.POST['passwordN']
+    vClaveU = request.POST['passwordM']
+    vCorreo = request.POST['emailM']
+    vFotoM = request.FILES.get('fotoP', '')
+    
+    listaM = usuario.objects.get(clave=vClaveU, correo=vCorreo) 
+
+    if vClaveN=='':
+        listaM.clave=vClaveU
+    else:
+        listaM.clave=vClaveN
+
+    if vFotoM!='':
+        listaM.fotoU=vFotoM
+
+    listaM.save()
+
+    u = User.objects.get(username=vCorreo)
+    u.set_password(vClaveN)
+    u.save()
+
+    contexto = {
+        "modificarU": listaM
+    } 
+    return render(request,'extension/Login.html',contexto)
+
+def formAgregarMP(request):
+
+    vClaveN = request.POST['claveN']
+    vClaveU = request.POST['claveM']
+    vCorreo = request.POST['emailM']
+    vFotoM = request.FILES.get('fotoMP', '')
+    
+    listaM = usuario.objects.get(clave=vClaveU, correo=vCorreo) 
+
+    if vClaveN=='':
+        listaM.clave=vClaveU
+    else:
+        listaM.clave=vClaveN
+
+    if vFotoM!='':
+        listaM.fotoU=vFotoM
+
+    listaM.save()
+
+    u = User.objects.get(username=vCorreo)
+    u.set_password(vClaveN)
+    u.save()
+
+    contexto = {
+        "modificarU": listaM
+    } 
+    return render(request,'extension/Login.html',contexto)
 
 def formAgregarU(request):
     vNombreU = request.POST['nombre']
@@ -126,25 +208,22 @@ def formAgregarU(request):
     user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)
     return redirect('Registrarse')
 
-
 def formSesion(request):
     try:
         vCorreo = request.POST['loginEmail']
         vClave = request.POST['loginPassword']
         vRol = 0
-        
+        vRun= 0
         registro = usuario.objects.all()
 
-
+        
         for rol in registro:
             if rol.correo == vCorreo and rol.clave == vClave:
 
-                    
+                    vRun = rol.idUsuario
                     vRol = rol.rol_id_rol.id_rol
-        print(vRol)
-        print(vClave)
         user1 = User.objects.get(username = vCorreo)
-        print(user1)
+        print(user1.username)
         pass_valida = check_password(vClave,user1.password)
 
         if not pass_valida:
@@ -157,7 +236,7 @@ def formSesion(request):
         if user is not None:
             if vRol == 1:
                 login(request,user)
-                return redirect('Pantalla')
+                return redirect(f'VerPerfil/{vRun}')
                 
 
             if vRol == 2:

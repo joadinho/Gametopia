@@ -20,6 +20,16 @@
 <body class="fondoN , cuN">
 {% endblock fondo %}
 
+{% block nintendo %}
+<li class="nav-item active">
+    <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' usuarios.idUsuario %}">Nintendo</a>
+</li>
+{% endblock nintendo %}
+
+{% block verperfil %}
+<a class="dropdown-item " href="{% url 'VerPerfil' usuarios.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %}
+
 {% block container %}
 <div class="container">
         <br>

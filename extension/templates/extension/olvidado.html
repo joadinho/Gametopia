@@ -48,8 +48,15 @@
                 <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
 
                 <p class="warnings" id="mensaje_Olvidado"></p>
-
+                {% if messages %}
+                <ul   class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
           </form>
+                
         </div>
 
 
