@@ -18,7 +18,17 @@ def Registrarse(request):
 
     return render(request,'extension/Registrarse.html', contexto)
 def Administrador(request):
-    return render(request,'extension/administrador.html')
+
+    listaUsuarios = usuario.objects.all()
+    listaComentarios = comentario.objects.all()
+    contexto = {
+        "usuarios": listaUsuarios,
+        "comentarios": listaComentarios
+    }
+
+    
+
+    return render(request,'extension/administrador.html', contexto)
 def Contacto(request):
     return render(request,'extension/Contacto.html')
 def Login(request):
@@ -55,7 +65,12 @@ def VerPerfil(request, id):
 def WebServices(request):
     return render(request,'extension/webServices.html')
 def xbox(request):
-    return render(request,'extension/Exclusivo Xbox/xbox.html')
+    listaJuegos = videojuego.objects.all()
+    contexto = {
+        "juegos": listaJuegos
+    }
+
+    return render(request,'extension/Exclusivo Xbox/xbox.html', contexto)
 def Play(request):
     return render(request,'extension/Exclusivo Play/playstation.html')
 def Pc(request):
@@ -83,6 +98,14 @@ def plantillaMenu(request,id):
 
     }
     return render(request,'extension/plantillaMenu.html',contexto)
+
+def formComentario(request):
+    vTitulo = request.POST['comentarioT']
+    vComentario = request.POST['ComeJ']
+    vComentario = request
+
+    vRegistroUsario = usuario.objects.get
+
 def formOlvidado(request):
     try: 
         vPregunta=request.POST['pregunta']

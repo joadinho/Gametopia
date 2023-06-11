@@ -63,8 +63,10 @@
                     <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=YzuTDSnfbeU"target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
                 </div>
                 <div class="col-md-8 col-sm-12">
-                  <form action="">
-                    <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="comment"
+                  <form action="" method="POST" id="formComentario">
+                    <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
+                    
+                    <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="ComeJ"
                         placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
                     <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
                   </form>

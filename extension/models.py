@@ -43,10 +43,10 @@ class plataforma(models.Model):
 class videojuego(models.Model):
     id_videojuego = models.AutoField(primary_key = True, verbose_name='id videojuego')
     nombreV       = models.CharField(max_length=250, verbose_name='nombre videojuego')
-    descripcion   = models.TextField(max_length=4000, verbose_name='descripcion videojuego')
-    trailer       = models.TextField(max_length=1000, verbose_name='trailer videojuego')
+    descripcion   = models.TextField(verbose_name='descripcion videojuego')
+    trailer       = models.TextField(verbose_name='trailer videojuego')
     foto          = models.ImageField(upload_to="portada_videojuego")
-    link      = models.TextField(max_length=1000, verbose_name='link tienda')
+    link      = models.TextField(verbose_name='link tienda')
     plataforma_id = models.ForeignKey(plataforma,on_delete=models.CASCADE)
 
     def __str__(self)-> str:
@@ -55,8 +55,8 @@ class videojuego(models.Model):
 
 class comentario(models.Model):
     id_comentario     = models.AutoField(primary_key = True, verbose_name='id comentario')
-    comentarios = models.TextField(max_length=3000, verbose_name='comentario')
-    tituloC           = models.CharField(max_length=200, verbose_name='')
+    comentarios = models.TextField(verbose_name='comentario')
+    tituloC           = models.CharField(max_length=200, verbose_name='titulo comentario')
     usuario_id_usuario = models.ForeignKey(usuario,on_delete=models.CASCADE)
     videojuego_id_videojuego = models.ForeignKey(videojuego,on_delete=models.CASCADE)
 

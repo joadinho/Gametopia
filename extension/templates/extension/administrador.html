@@ -40,45 +40,23 @@
                     <tr>
                       <th>Nombre</th>
                       <th>Correo</th>
-                      <th>Contraseña</th>
                       <th>Celular</th>
-                      <th>Edad</th>
                       <th>Fecha de Nacimiento</th>
-                      <th>Genero</th>
                       <th>Rol</th>
                     </tr>
-                    <tr>
-                      <td>Alvaro Hernandez</td>
-                      <td>alvarito.her@gmail.com</td>
-                      <td>alvarito123</td>
-                      <td>956742347</td>
-                      <td>24 años</td>
-                      <td>25, agosto 1998</td>
-                      <td>Masculino</td>
-                      <td>Usuario</td>
-                    </tr>
-                    <tr>
-                      <td>Benito Benavides</td>
-                      <td>B.benavides67@gmail.com</td>
-                      <td>benit0Op</td>
-                      <td>965786189</td>
-                      <td>33 años</td>
-                      <td>1, Diciembre 1990</td>
-                      <td>Masculino</td>
-                      <td>Usuario</td>
 
-                    </tr>
+                    {% for u in usuarios %}
                     <tr>
-                      <td>Joao Lisboa</td>
-                      <td>joa.lis@gmail.com</td>
-                      <td>html123</td>
-                      <td>973826485</td>
-                      <td>22 años</td>
-                      <td>4, agosto 2000</td>
-                      <td>Masculino</td>
-                      <td>Administrador</td>
+                      <td>{{ u.nombreU }} {{ u.apellido }}</td>
+                      <td>{{ u.correo}}</td>
 
+                      <td>{{u.telefono}}</td>
+                      <td>{{u.fechaU}}</td>
+                      <td>{{u.rol_id_rol}}</td>
                     </tr>
+                    
+
+                    {% endfor %}
                     
                   </table>
                 </div>
@@ -98,11 +76,17 @@
             <div class="col-md-2 col-sm-3"></div>
             <div class="col-md-8 col-sm-6">
             <table class="table">
-                <tr><th class="centrar">Perfil de: Alvaro Hernandez</th></tr>
+              
+                {% for u in usuarios%}
+                <tr><th class="centrar">Perfil de: {{ u.nombreU }} {{u.apellido}}</th></tr>
                 <tr>
-                  <th class="centrar">Estaba en duda si comprarme el videojuego Batman arkham knight o no comprármelo, pero gracias a la descripción 
-                  y ver el tráiler me pareció un gran juego, gracias por la oportunidad de entrar a su sitio web me parece espectacular sigan así.</th>
+                {% endfor %}
+
+                {% for i in comentarios %}
+                <tr><th class="centrar">Titulo comentario: {{ i.tituloC }}</th></tr>
+                    <th class="centrar">{{ i.comentarios}}</th>
                 </tr>
+                {% endfor %}
             </table>  
               </div>
             <div class="col-md-2 col-sm-3"></div>
