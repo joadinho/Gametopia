@@ -54,7 +54,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-3"></div>
         <div class="col-md-6 col-sm-6" style="margin-top: 20px;">
-          <form action="{% url 'formAgregarJ' %}" method="POST" id="formJuego" class="fondoform">
+          <form action="{% url 'formAgregarJ' %}" method="POST" id="formJuego" class="fondoform" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form">
               <h1 class="centrar letraLo">Agrega un juego</h1>
@@ -77,7 +77,7 @@
 
                     <div class="grupo">
                       <label for="exampleFormControlFile1" ><h5>Seleccione foto del juego</h5></label>
-                      <input accept="image/png,image/jpeg" type="file" class="barra , form-control-file" id="SeleccioneJ" name="SeleccioneJ">
+                      <input accept="image/png,image/jpeg" type="file" class="barra form-control-file" id="SeleccioneJ" name="SeleccioneJ">
                     </div>
                     <div class="grupo">
                       <input type="text" name="LinkJ" id="LinkJ"><span class="barra" ></span>
