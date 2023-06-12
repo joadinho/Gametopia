@@ -21,6 +21,37 @@
   </head>
 
 <body class="fondoPP">
+  
+  <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{% url 'Login' %}"><h3>GameTopia</h3></a>
+    <a class="navbar-brand" href="{% url 'Administrador' %}"  style="margin-left: 25px;" >Usuarios</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+              <a class="nav-link , cuP1" href="{% url 'Comentarios' %}">Comentarios<span
+                      class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item active">
+              <a class="nav-link , cuX1" href="{% url 'ModificarJuegos' %}">Modificar Juegos</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link , cuX1" href="{% url 'Agregar' %}">Agregar Juegos</a>
+          </li>
+
+          <li class="nav-item active">
+              <a class="nav-link disabled , cuPC1" href="{% url 'Login' %}">Cerrar Sesion</a>
+          </li>
+        
+      </ul>
+      
+    </nav>
+    </div><br>
 
 
 
@@ -72,50 +103,7 @@
                     <input  type="submit" value="Eliminar Perfil" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);" >
                 </div>
             </div><br><br>
-          <div class="row">
-            <div class="col-md-2 col-sm-3"></div>
-            <div class="col-md-8 col-sm-6">
-            <table class="table">
-              
-                {% for u in usuarios%}
-                <tr><th class="centrar">Perfil de: {{ u.nombreU }} {{u.apellido}}</th></tr>
-                <tr>
-                {% endfor %}
-
-                {% for i in comentarios %}
-                <tr><th class="centrar">Titulo comentario: {{ i.tituloC }}</th></tr>
-                    <th class="centrar">{{ i.comentarios}}</th>
-                </tr>
-                {% endfor %}
-            </table>  
-              </div>
-            <div class="col-md-2 col-sm-3"></div>
-
-            
-            <input  type="submit" value="Eliminar comentario"  class="btn btn" style="margin-left: 30%;margin-right: 40%; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);" >
-
-          </div>
-          <div class="row">
-            <div class="col-md-2 col-sm-3"></div>
-            <div class="col-md-8 col-sm-6">
-              <table class="table">
-                <tr><th class="centrar">Perfil de: Benito Benavides</th></tr>
-                <tr>
-                  <th class="centrar">La pagina es mala no entren en ella, quiero que la eliminen.</th>
-                </tr><br><br>
-              </table> 
-            </div>
-            
-          <div class="col-md-2 col-sm-3"></div>
-            <input  type="submit" value="Eliminar comentario" class="btn btn " style="margin-left: 30%; margin-right: 40%; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);" >
-          </div><br>
-          <p style="text-align: center;background-color: #ffffff;;" ><a href="{% url 'Agregar' %}" >🢂🢂🢂Ir a agregar un nuevo juego🢀🢀🢀</a></p><br>
-          <a href="{% url 'Contacto' %}"><input  type="submit" value="Cerrar Sesión"  class="btn btn" style=" color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);" ></a>
-          <div class="row">
-            <div class="col-md-12 col-sm-12">
-              <br><br>
-            </div>
-          </div>
+          
 
 
           

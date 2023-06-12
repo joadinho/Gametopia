@@ -9,6 +9,19 @@ from django.contrib import messages
 
 def Pantalla(request):
     return render(request,'extension/Pantalla.html')
+def Comentarios(request):
+    listaUsuarios = usuario.objects.all()
+    listaComentarios = comentario.objects.all()
+    contexto = {
+    "usuarios": listaUsuarios,
+    "comentarios": listaComentarios
+
+    }
+
+
+    return render(request,'extension/Comentarios.html',contexto)
+def ModificarJuegos(request):
+    return render(request,'extension/ModificarJuegos.html')
 
 def Registrarse(request):
     listaPreguntas = pregunta.objects.all()
@@ -20,10 +33,11 @@ def Registrarse(request):
 def Administrador(request):
 
     listaUsuarios = usuario.objects.all()
-    listaComentarios = comentario.objects.all()
+    
+    listaRoles = rol.objects.all()
     contexto = {
         "usuarios": listaUsuarios,
-        "comentarios": listaComentarios
+        "Roles" : listaRoles
     }
 
     
@@ -139,7 +153,7 @@ def formAgregarJ(request):
     vNombreJ = request.POST['NombreJ']
     vDescripcion = request.POST['DescripcionJ']
     vTrailer     = request.POST['TrailerJ']
-    vFotoJ       = request.FILES.get('SeleccioneJ',"")
+    vFotoJ       = request.FILES['SeleccioneJ']
     vLink        = request.POST['LinkJ']
     vPlataforma  = request.POST['plataforma']
 

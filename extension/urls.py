@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,Agregar,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,Agregar,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     path('',Pantalla,name="Pantalla"),
@@ -29,4 +29,6 @@ urlpatterns = [
     path('formAgregarM', formAgregarM,name="formAgregarM"),
     path('ModificarP/<int:id>', ModificarP,name="ModificarP"),
     path('formAgregarMP', formAgregarMP,name="formAgregarMP"),
+    path('Comentarios', Comentarios,name="Comentarios"),
+    path('ModificarJuegos', ModificarJuegos,name="ModificarJuegos"),
 ]

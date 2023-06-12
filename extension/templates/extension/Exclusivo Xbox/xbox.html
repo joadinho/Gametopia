@@ -28,10 +28,9 @@
         <div class="row centrar">
             <div class="col-md-12 "><h1 class="letraT">EXCLUSIVOS DE XBOX</h1></div>
         </div><br><br>
+        <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'DeadR' %}" ><img src="{% static 'extension./img/XBOX/DEAD RISING.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">DEAD RISING</p></a></div>
         {% for i in juegos %}
-            
         <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'DeadR' %}" ><img src="{% static 'extension./img/XBOX/DEAD RISING.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraX">DEAD RISING</p></a></div>
             <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="" ><img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a></div>
         </div><br><br>
         {% endfor %}
