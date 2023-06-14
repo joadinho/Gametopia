@@ -79,14 +79,20 @@ def VerPerfil(request, id):
 def WebServices(request):
     return render(request,'extension/webServices.html')
 def xbox(request):
-    listaJuegos = videojuego.objects.all()
+    listaJuegos = videojuego.objects.filter(plataforma_id = 1)
     contexto = {
         "juegos": listaJuegos
     }
 
     return render(request,'extension/Exclusivo Xbox/xbox.html', contexto)
 def Play(request):
-    return render(request,'extension/Exclusivo Play/playstation.html')
+
+    listaJuegos = videojuego.objects.filter(plataforma_id = 3)
+    contexto = {
+        "juegos": listaJuegos
+    }
+
+    return render(request,'extension/Exclusivo Play/playstation.html', contexto)
 def Pc(request):
     return render(request,'extension/Exclusivo PC/pc.html')
 def Nintendo(request,id):
@@ -99,8 +105,16 @@ def Nintendo(request,id):
     return render(request,'extension/Exclusivo Nintendo/nintendo.html',contexto)
 def Batman(request):
     return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html')
-def DeadR(request):
-    return render(request,'extension/Exclusivo Xbox/deadrising.html')
+
+def DeadR(request, id):
+
+    juego = videojuego.objects.get(id_videojuego = id)
+    contexto = {
+        "videojuego": juego
+    }
+    return render(request,'extension/Exclusivo Xbox/deadrising.html', contexto)
+
+
 def Animal(request):
     return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html')
 def BMesa(request):
@@ -116,10 +130,10 @@ def plantillaMenu(request,id):
 def formComentario(request):
     vTitulo = request.POST['comentarioT']
     vComentario = request.POST['ComeJ']
-    vComentario = request
 
-    vRegistroUsario = usuario.objects.get
+    comentario
 
+    
 def formOlvidado(request):
     try: 
         vPregunta=request.POST['pregunta']

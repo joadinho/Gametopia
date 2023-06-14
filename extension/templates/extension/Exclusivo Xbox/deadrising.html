@@ -28,7 +28,7 @@
   
           <div class="row">
              <div class="col-md-4 col-sm-12">
-              <img class="img" src="{% static 'extension./img/XBOX/DEAD RISING.jpg' %}" alt="sin imagen"><H2 class="centrar letraVJ" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%; ">DEAD RISING</H2>
+              <img class="img" src="{{videojuego.foto.url}}" alt="sin imagen"><H2 class="centrar letraVJ" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%; ">{{ videojuego.nombreV }}</H2>
              </div>
              <div class="col-md-8 col-sm-12" >
             <table class="table-responsive" >
@@ -40,12 +40,7 @@
               <br>
               <tr>
                 <th>
-                  <h5 class="centrar letraVJ">Dead Rising es un videojuego de terror de acción-aventura, mundo abierto desarrollado por Capcom y producido por Keiji Inafune.
-                    Fue lanzado el 8 de agosto de 2006 para la consola Xbox 360.  El juego fue un éxito comercial que fue introducido en la línea de Platinum Hits de Xbox 360 y un spin-off para teléfono móvil. 
-                    La secuela llamada Dead Rising 2 fue desarrollada por Blue Castle Games en conjunto con varios desarrolladores anteriores de Dead Rising y lanzado en septiembre de 2010. La siguiente secuela es DEAD RISING 4 para XBOX ONE.
-                     En donde regresa Frank West a Willamette en épocas de Navidad en 2016, en esta entrega no solo está desarrollado en el centro comercial, 
-                   si no en todo el pueblo de Willamette dándole la posibilidad de explorar todo el mapa en modo de mundo abierto. La historia de Dead Rising se centra en Frank West,
-                    un fotoperiodista quien termina atrapado en un centro comercial en la ficticia ciudad de Willamette, Colorado, que está infestada de zombis. </h5>
+                  <h5 class="centrar letraVJ">{{ videojuego.descripcion }} </h5>
                 </th>
             </tr>
             </table>
@@ -54,29 +49,33 @@
               <br>
               <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <H3 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Plataformas:<br>
-                       XBOX ONE<br>
-                       XBOX SERIES<br>
-                       XBOX 360 </H3><br>
+                    <H3 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Plataforma:<br>
+                       XBOX<br>
+                       </H3><br>
                     
                     <h2 clasS="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Trailer</h2><br>
-                    <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=YzuTDSnfbeU"target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
+                    <p style="margin-left: 26%;"><a href="{{ videojuego.trailer }}"target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
                 </div>
                 <div class="col-md-8 col-sm-12">
+
+                  {% if user.is_authenticated %}
                   <form action="" method="POST" id="formComentario">
+                    {% csrf_token %}
                     <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
                     
                     <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="ComeJ"
                         placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
                     <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
+
                   </form>
+                  {% endif %}
                 </div>
             
           </div>
           <div class="row">
             <div class="col-md-4 col-sm-12">
               <h2 class="centrar , letraVJ" style="background-color: rgba(255, 255, 255, 0.9);margin-right: 30%;">Tiendas disponibles</h2><br>
-                    <p style="margin-left: 26%;" ><a href="https://www.xbox.com/es-CL/games/store/dead-rising/BZV7W98B3XN4/0001"target="_blank">
+                    <p style="margin-left: 26%;" ><a href="{{videojuego.link}}"target="_blank">
                       <img src="{% static 'extension./img/XBOX/logoXbox.png' %}" alt="Juego XBOX" class="logoY"></a></p>
             </div>
             <div class="col-md-8 col-sm-12"></div>

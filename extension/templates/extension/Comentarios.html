@@ -62,9 +62,11 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
     <table class="table">
 
         {% for u in usuarios %}
-          <thead>
-          <tr><th class="centrar"> {{ u.nombreU }} {{u.apellido}}</th></tr>
-          </thead>
+          
+          <tr><th class="centrar"> {{ u.nombreU }} {{u.apellido}}</th>
+          </tr>
+          <th style="text-align:center"> <a class="btn btn-primary"> Ver comentario </a> </th> 
+          
         {% endfor %}
         
 
