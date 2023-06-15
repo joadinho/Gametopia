@@ -3,13 +3,13 @@ from django.urls import path
 from .views import Pantalla,Agregar,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
-     path('',Pantalla,name="Pantalla"),
+    
     path('Pantalla/<int:id>',Pantalla,name="Pantalla"),
     path('Registrarse',Registrarse,name="Registrarse"),
     path('Administrador',Administrador,name="Administrador"),
     path('Agregar',Agregar,name="Agregar"),
     path('Contacto/<int:id>',Contacto,name="Contacto"),
-    path('Login',Login,name="Login"),
+    path('',Login,name="Login"),
     path('Modificar',Modificar,name="Modificar"),
     path('Olvidado',Olvidado,name="Olvidado"),
     path('VerPerfil/<int:id>',VerPerfil,name="VerPerfil"),

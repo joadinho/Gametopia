@@ -76,7 +76,8 @@
         {% for i in juegos %}
             <div class="row">
 
-                <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'DeadR' i.id_videojuego %}" ><img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
+                <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'DeadR' i.id_videojuego %}" >
+                    <img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
                 </div>
             </div><br><br>
         {% endfor %}

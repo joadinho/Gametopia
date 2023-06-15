@@ -424,3 +424,13 @@ def formSesion(request):
             return redirect('Login')
     except Exception as e:
         print(e)
+
+def formComentario(request):
+    vTituloCo = ['comentarioT']
+    vComentario = ['ComentarioJ']
+    vIDComen = ['id_com']
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vJuego = videojuego.objects.get(id_videojuego=vIDComen)
+    
+
