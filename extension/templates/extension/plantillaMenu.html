@@ -28,22 +28,40 @@
   <!-- Menu Principal   -->
   
     <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a href="{% url 'Pantalla' %}"><h3>GameTopia</h3></a>
-        <a class="navbar-brand" href="{% url 'Pantalla' %}"  style="margin-left: 25px;" >Inicio</a>
+      <h3>GameTopia</h3>
+
+      {% if user.is_authenticated %}
+      {% block Pantalla %}
+      {% endblock Pantalla %}
+      {% else  %}
+      <a class="navbar-brand" href="{% url 'Pantalla' 0%}"  style="margin-left: 25px;" >Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+      {% endif %}
+        
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link , cuP1" href="{% url 'Play' %}">PlayStation <span
-                          class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                  <a class="nav-link , cuX1" href="{% url 'xbox' %}">Xbox</a>
-              </li>
 
+              {% if user.is_authenticated %}
+              {% block Play %}
+              {% endblock Play %}
+              {% else  %}
+              <li class="nav-item active">
+                <a class="nav-link disabled , cuN1" href="{% url 'Play' 0 %}">PlayStation </a>
+              </li>
+              {% endif %}
+
+              {% if user.is_authenticated %}
+              {% block Xbox %}
+              {% endblock Xbox %}
+              {% else  %}
+              <li class="nav-item active">
+                <a class="nav-link disabled , cuN1" href="{% url 'xbox' 0 %}">Xbox</a>
+              </li>
+              {% endif %}
+              
               {% if user.is_authenticated %}
               {% block nintendo %}
               {% endblock nintendo %}
@@ -52,13 +70,25 @@
                 <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' 0 %}">Nintendo</a>
               </li>
               {% endif %}
-              
+
+              {% if user.is_authenticated %}
+              {% block PC %}
+              {% endblock PC %}
+              {% else  %}
               <li class="nav-item active">
-                  <a class="nav-link disabled , cuPC1" href="{% url 'Pc' %}">PC</a>
+                <a class="nav-link disabled , cuN1" href="{% url 'Pc' 0 %}">PC</a>
               </li>
-            <li class="nav-item active">
-                <a class="nav-link disabled , " href="{% url 'Contacto' %}">Contactanos</a>
-            </li>
+              {% endif %}
+
+              {% if user.is_authenticated %}
+              {% block Contacto %}
+              {% endblock Contacto %}
+              {% else  %}
+              <li class="nav-item active">
+                <a class="nav-link disabled , cuN1" href="{% url 'Contacto' 0 %}">Contactanos</a>
+              </li>
+              {% endif %}
+
             <li class="nav-item dropdown active ">
               <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Perfil

@@ -7,8 +7,15 @@ from django.contrib import messages
 
 # Create your views here.
 
-def Pantalla(request):
-    return render(request,'extension/Pantalla.html')
+def Pantalla(request,id):
+    if id == 0:
+        return render(request,'extension/Pantalla.html')
+    lista = usuario.objects.get(idUsuario=id)
+    contexto = {
+        "Panta": lista
+    }
+    return render(request,'extension/Pantalla.html',contexto)
+
 def Comentarios(request):
     listaUsuarios = usuario.objects.all()
     listaComentarios = comentario.objects.all()
@@ -43,8 +50,16 @@ def Administrador(request):
     
 
     return render(request,'extension/administrador.html', contexto)
-def Contacto(request):
-    return render(request,'extension/Contacto.html')
+def Contacto(request,id):
+    if id == 0:
+        return render(request,'extension/Contacto.html')
+    lista = usuario.objects.get(idUsuario=id)
+    contexto = {
+        "contac": lista
+    }
+
+    return render(request,'extension/Contacto.html',contexto)
+
 def Login(request):
     logout(request)
     return render(request,'extension/Login.html')
@@ -67,7 +82,7 @@ def Olvidado(request):
         "preguntas": listaPreguntas
     }
     return render(request,'extension/olvidado.html', contexto)
-def VerPerfil(request, id):
+def VerPerfil(request,id):
 
     lista = usuario.objects.get(idUsuario=id)
     contexto = {
@@ -78,61 +93,154 @@ def VerPerfil(request, id):
 
 def WebServices(request):
     return render(request,'extension/webServices.html')
-def xbox(request):
+
+def xbox(request,id):
+    if id == 0:
+        listaJuegos = videojuego.objects.filter(plataforma_id = 1)
+        contexto = {
+            "juegos": listaJuegos
+        }
+        return render(request,'extension/Exclusivo Xbox/xbox.html',contexto)
+    
+    lista = usuario.objects.get(idUsuario=id)
     listaJuegos = videojuego.objects.filter(plataforma_id = 1)
     contexto = {
+        "xbo": lista,
         "juegos": listaJuegos
     }
 
     return render(request,'extension/Exclusivo Xbox/xbox.html', contexto)
-def Play(request):
 
+def Play(request,id):
+    if id == 0:
+        listaJuegos = videojuego.objects.filter(plataforma_id = 3)
+        contexto = {
+            "juegos1": listaJuegos
+        }
+        return render(request,'extension/Exclusivo Play/playstation.html',contexto)
+
+    lista = usuario.objects.get(idUsuario=id)
     listaJuegos = videojuego.objects.filter(plataforma_id = 3)
     contexto = {
+        "Pla": lista,
         "juegos1": listaJuegos
     }
 
     return render(request,'extension/Exclusivo Play/playstation.html', contexto)
-def Pc(request):
+
+def Pc(request,id):
+    if id == 0:
+        listaJuegos = videojuego.objects.filter(plataforma_id = 4)
+        contexto = {
+            "juegos2": listaJuegos
+        }
+        return render(request,'extension/Exclusivo PC/pc.html',contexto)
+    
+    lista = usuario.objects.get(idUsuario=id)
     listaJuegos = videojuego.objects.filter(plataforma_id = 4)
     contexto = {
+        "PC": lista,
         "juegos2": listaJuegos
     }
+
     return render(request,'extension/Exclusivo PC/pc.html',contexto)
-def Nintendo(request):
+
+
+def Nintendo(request, id):
+    if id == 0:
+        listaJuegos = videojuego.objects.filter(plataforma_id = 2)
+        contexto = {
+            "juegos3": listaJuegos
+        }
+        return render(request,'extension/Exclusivo Nintendo/nintendo.html',contexto)
+    lista = usuario.objects.get(idUsuario=id)
     listaJuegos = videojuego.objects.filter(plataforma_id = 2)
     contexto = {
+        "Nin": lista,
         "juegos3": listaJuegos
     }
 
     return render(request,'extension/Exclusivo Nintendo/nintendo.html',contexto)
+
 def Batman(request, id):
-    juego = videojuego.objects.get(id_videojuego = id)
-    contexto = {
-        "videojuego1": juego
-    }
-    return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html', contexto)
+    if request.user.is_authenticated:
+        vCorreo = request.user.username
+        vUser = usuario.objects.get(correo=vCorreo)
+        vID = vUser.idUsuario
+
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "ID" : vID,
+            "videojuego1": juego
+        }
+        return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html', contexto)
+    else:
+
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "videojuego1" : juego
+        }
+        return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html', contexto)
 
 def DeadR(request, id):
-
-    juego = videojuego.objects.get(id_videojuego = id)
-    contexto = {
-        "videojuego": juego
-    }
-    return render(request,'extension/Exclusivo Xbox/deadrising.html', contexto)
+    if request.user.is_authenticated:
+        vCorreo = request.user.username
+        vUser = usuario.objects.get(correo=vCorreo)
+        vID = vUser.idUsuario
+        
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "ID" : vID,
+            "videojuego": juego
+        }
+        return render(request,'extension/Exclusivo Xbox/deadrising.html', contexto)
+    
+    else:
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "videojuego": juego
+        }
+        return render(request,'extension/Exclusivo Xbox/deadrising.html', contexto)
 
 def Animal(request, id):
-    juego = videojuego.objects.get(id_videojuego = id)
-    contexto = {
-        "videojuego3": juego
-    }
-    return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html', contexto)
+    if request.user.is_authenticated:
+        vCorreo = request.user.username
+        vUser = usuario.objects.get(correo=vCorreo)
+        vID = vUser.idUsuario
+        
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "ID" : vID,
+            "videojuego3": juego
+        }
+        return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html', contexto)
+    
+    else:
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "videojuego3": juego
+        }
+        return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html', contexto)
+    
 def BMesa(request, id):
-    juego = videojuego.objects.get(id_videojuego = id)
-    contexto = {
-        "videojuego2": juego
-    }
-    return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
+    if request.user.is_authenticated:
+        vCorreo = request.user.username
+        vUser = usuario.objects.get(correo=vCorreo)
+        vID = vUser.idUsuario
+        
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "ID" : vID,
+            "videojuego2": juego
+        }
+        return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
+    
+    else:
+        juego = videojuego.objects.get(id_videojuego = id)
+        contexto = {
+            "videojuego2": juego
+        }
+        return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
 def plantillaMenu(request,id):
     lista = usuario.objects.get(idUsuario=id)
     contexto ={
