@@ -26,13 +26,15 @@
         <br>
         
         <div class="row centrar">
-            <div class="col-md-12"><h1 class="letraT">EXCLUSIVOS DE PC</h1></div>
+            <div class="col-md-12 "><h1 class="letraT">EXCLUSIVOS DE PC</h1></div>
         </div><br><br>
-        
-        <div class="row"><br><br>
-            <div class="col-md-3 col-sm-6 centrar"><a  class="cuPC1" href="{% url 'BMesa' %}" ><img src="{% static 'extension./img/PC/Black Mesa.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraPC">BLACK MESA</p></a></div>
-           
-        </div><br><br>
+        {% for i in juegos2 %}
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'BMesa' i.id_videojuego %}" ><img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
+                </div>
+            </div><br><br>
+        {% endfor %}
 
         
 

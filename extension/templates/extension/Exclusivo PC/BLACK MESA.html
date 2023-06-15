@@ -30,21 +30,14 @@
 
         <div class="row">
            <div class="col-md-4 col-sm-12">
-            <img class="img" src="{% static 'extension./img/PC/Black Mesa.jpg' %}" alt="sin imagen"><h2 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">BLACK MESA</h2>
+            <img class="img" src="{{videojuego2.foto.url}}" alt="sin imagen"><h2 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">{{ videojuego2.nombreV }}</h2>
            </div>
            <div class="col-md-8 col-sm-12" style="margin-top: 7%;">
             <table class="table-responsive" >
               <tr><th class="centrar , letraVJ" ><h4>Descripción</h4>
               </th></tr>
               <tr>
-                <th class="centrar , letraVJ"><h5>Black Mesa (previamente conocido como Black Mesa: Source) es un videojuego de disparos en primera persona desarrollado y publicado
-                 por Crowbar Collective. Es una nueva versión del videojuego Half-Life que utiliza el motor gráfico Source. Fue originalmente publicado 
-                 como un mod gratuito en septiembre de 2012 y luego fue aprobado por Valve (los desarrolladores de Half-Life) para su lanzamiento comercial
-                 . La versión comercial fue publicada como un título de acceso anticipado en mayo de 2015 y su versión completa fue lanzada en marzo de 2020
-                  para las plataformas Microsoft Windows y Linux. Black Mesa es un videojuego de disparos en primera persona que requiere que el jugador realice
-                   tareas de combate y resuelva varios acertijos para avanzar en el videojuego. Desde el punto de vista del diseño, la jugabilidad principal permanece
-                    en gran medida sin cambios desde el videojuego base original Half-Life; el jugador puede llevar una cantidad de armas que encuentra en el transcurso 
-                    del videojuego, aunque también debe localizar y controlar la munición para la mayoría de las armas.</h5></th>
+                <th class="centrar , letraVJ"><h5>{{ videojuego2.descripcion }}</h5></th>
               </tr>
           </table> 
             </div></div>
@@ -56,14 +49,20 @@
                   ° PC </H3><br>
                 <br>
                 <h2 clasS="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Trailer</h2><br>
-                <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=V7vDsarvyoc" target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
+                <p style="margin-left: 26%;"><a href="{{ videojuego2.trailer }}" target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
             </div>
             <div class="col-md-8 col-sm-12">
-              <form action="">
-              <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="comment"
-                  placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
-              <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
-            </form>
+              {% if user.is_authenticated %}
+                <form action="" method="POST" id="formComentario">
+                {% csrf_token %}
+                <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
+                    
+                <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="ComeJ"
+                placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
+                <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
+
+                </form>
+              {% endif %}
     
             </div>
         
@@ -71,12 +70,8 @@
       <div class="row">
         <div class="col-md-4 col-sm-12">
           <h2 class="centrar , letraVJ" style="background-color: rgba(255, 255, 255, 0.9);margin-right: 30%;">Tiendas disponibles</h2><br>
-                <p style="margin-left: 26%;" ><a href="https://store.steampowered.com/app/362890/Black_Mesa/?l=spanish" target="_blank">
+                <p style="margin-left: 26%;" ><a href="{{videojuego2.link}}" target="_blank">
                     <img src="{% static 'extension./img/PC/logoSteam.png' %}" alt="Juego Steam" class="logoY"></a></p>
-		    <p style="margin-left: 26%;" ><a href="https://www.g2a.com/es/black-mesa-steam-key-global-i10000006953007" target="_blank">
-                    <img src="{% static 'extension./img/PC/logoG2A.png' %}" alt="Juego G2A" class="logoY"></a></p>
-                <p style="margin-left: 26%;" ><a href="https://www.eneba.com/latam/steam-black-mesa-steam-key-global" target="_blank">
-                    <img src="{% static 'extension./img/PC/logoEneba.png' %}" alt="Juego Eneba" class="logoY"></a></p>
         </div>
         <div class="col-md-8 col-sm-12"></div>
         

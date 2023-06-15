@@ -29,9 +29,8 @@
 
     <div class="row">
       <div class="col-md-4 col-sm-12">
-        <img class="img" src="{% static 'extension./img/NINTENDO/animal-crossing.jpg' %}" alt="sin imagen">
-        <H3 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">ANIMAL
-          CROSSING</H3>
+        <img class="img" src="{{videojuego3.foto.url}}" alt="sin imagen">
+        <H3 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">{{ videojuego3.nombreV }}</H3>
       </div>
       <div class="col-md-8 col-sm-12" style="margin-top: 7%;">
         <table class="table-responsive">
@@ -41,15 +40,7 @@
             </th>
           </tr>
           <tr>
-            <th class="centrar , letraVJ">
-              <h5>Animal Crossing es un videojuego de simulación social y de vida que Nintendo ha descrito como un
-                «juego de comunicación».
-                El personaje vive una vida en la que el usuario decide qué hacer, como cumplir las tareas propuestas por
-                los vecinos (que no son obligatorias).
-                Los jugadores asumen el rol de un nuevo vecino que se acaba de mudar al pueblo. El género y la cara del
-                personaje depende de las respuestas que
-                se le den a las preguntas de un gato llamado Fran, el cual nos encontramos en el tren en el que el
-                personaje viaja al pueblo.</h5>
+            <th class="centrar , letraVJ">{{ videojuego3.descripcion }}</h5>
             </th>
           </tr>
         </table>
@@ -61,21 +52,26 @@
       <div class="col-md-4 col-sm-12">
         <H3 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">
           Plataformas<br>
-          ° Nintendo Switch</H3><br>
+          ° NINTENDO</H3><br>
         <br>
         <h2 clasS="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Trailer
         </h2><br>
-        <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=5YPxiTLMcdg" target="_blank"><img
+        <p style="margin-left: 26%;"><a href="{{ videojuego3.trailer }}" target="_blank"><img
               src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}" alt="youtube" class="logoY"></a></p>
       </div>
       
         <div class="col-md-8 col-sm-12">
-          <form action="">
-          <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="comment"
-              placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
-          <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
-        </form>
+          {% if user.is_authenticated %}
+            <form action="" method="POST" id="formComentario">
+            {% csrf_token %}
+            <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
+                    
+            <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="ComeJ"
+            placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
+            <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
 
+            </form>
+          {% endif %}
         </div>
       
     </div>
@@ -86,7 +82,7 @@
         <h2 class="centrar , letraVJ" style="background-color: rgba(255, 255, 255, 0.9);margin-right: 30%;">Tiendas
           disponibles</h2><br>
         <p style="margin-left: 26%;"><a
-            href="https://www.nintendo.com/es-cl/store/products/animal-crossing-new-horizons-switch/" target="_blank">
+            href="{{videojuego3.link}}" target="_blank">
             <img src="{% static 'extension./img/NINTENDO/nintendo.jpg' %}" alt="Juego Nintendo" class="logoY"></a></p>
       </div>
       <div class="col-md-8 col-sm-12"></div>

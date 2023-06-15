@@ -22,26 +22,26 @@
 
 {% block nintendo %}
 <li class="nav-item active">
-    <a class="nav-link disabled , cuN1" href="{% url 'Nintendo' usuarios.idUsuario %}">Nintendo</a>
+    <a class="nav-link disabled , cuN1" href="{% url 'Nintendo'  %}">Nintendo</a>
 </li>
 {% endblock nintendo %}
 
-{% block verperfil %}
-<a class="dropdown-item " href="{% url 'VerPerfil' usuarios.idUsuario %}">Ver perfil</a>
-{% endblock verperfil %}
+
 
 {% block container %}
 <div class="container">
         <br>
         
         <div class="row centrar">
-            <div class="col-md-12"><h1 class="letraT">EXCLUSIVOS DE NINTENDO</h1></div>
-        </div>
-        
-        <br><br><div class="row">
-            <div class="col-md-3 col-sm-6 centrar "><a class="cuN1" href="{% url 'Animal' %}" ><img src="{% static 'extension./img/NINTENDO/animal-crossing.jpg' %}"  alt="sin imagen" class="img"><br><p class="letraN">ANIMAL CROSSING</p></a></div>
-            
+            <div class="col-md-12 "><h1 class="letraT">EXCLUSIVOS DE NINTENDO</h1></div>
         </div><br><br>
+        {% for i in juegos3 %}
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'Animal' i.id_videojuego %}" ><img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
+                </div>
+            </div><br><br>
+        {% endfor %}
 
         
         

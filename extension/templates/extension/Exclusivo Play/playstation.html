@@ -24,22 +24,16 @@
 <div class="container">
     <br>
 
-        <div class="row centrar">
-            <div class="col-md-12"><h1 class="letraT">EXCLUSIVOS DE PLAYSTATION</h1>
+    <div class="row centrar">
+        <div class="col-md-12 "><h1 class="letraT">EXCLUSIVOS DE PLAYSTATION</h1></div>
+    </div><br><br>
+    {% for i in juegos1 %}
+        <div class="row">
+
+            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="{% url 'Batman' i.id_videojuego %}" ><img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
             </div>
         </div><br><br>
-        
-        <div class="row">
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuP1" href="{% url 'Batman' %}" ><img src="{% static 'extension./img/PLAYSTATION/batman arkham knight.jpeg' %}"  alt="sin imagen" class="img"><br><p class="letrap">BATMAN ARKHAM KNIGHT</p></a>
-            </div>
-        </div>
-        {% for i in juegos %}
-            <div class="row">
-            
-            <div class="col-md-3 col-sm-6 centrar"><a class="cuX1" href="" ><img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
-            </div>
-            </div><br><br>
-        {% endfor %}
+    {% endfor %}
 
 
 

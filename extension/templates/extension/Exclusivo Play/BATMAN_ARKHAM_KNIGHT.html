@@ -31,20 +31,14 @@
         <br><br>
         <div class="row">
            <div class="col-md-4 col-sm-12">
-            <img class="img" src="{% static 'extension./img/PLAYSTATION/batman arkham knight.jpeg' %}" alt="sin imagen"><h4 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">BATMAN ARKHAM KNIGHT</h4>
+            <img class="img" src="{{videojuego1.foto.url}}" alt="sin imagen"><h4 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 29%;">{{ videojuego1.nombreV }}</h4>
            </div> 
            <div class="col-md-8 col-sm-12" style="margin-top: 7%;">
             <table class="table-responsive" >
               <tr><th class="centrar , letraVJ" ><h4>Descripción</h4>
               </th></tr>
               <tr>
-                <th class="centrar , letraVJ"><h5>Batman: Arkham Knight es un videojuego de acción-aventura y mundo abierto desarrollado por Rocksteady Studios y lanzado por Warner Bros. 
-                Interactive Entertainment para las consolas PlayStation 4, PlayStation 3 y Microsoft Windows.  Basado en el superhéroe de DC Comics Batman, 
-                es el sucesor del videojuego de 2013 Batman: Arkham Origins, y el cuarto juego principal 
-                 en la serie Batman: Arkham .Kevin Conroy interpretó a Batman de nuevo, al igual que Mark Hamill con el Joker. Fue lanzado a nivel mundial el 23 de junio de 2015.
-                 Escrito por Sefton Hill, Ian Ball y Martin Lancaster, transcurre un año después de los acontecimientos del anterior juego, "Batman: Arkham City",
-                publicado en 2011. La trama principal continúa con Batman, en la cúspide de sus habilidades, enfrentándose contra el Espantapájaros,
-                que ha lanzado un ataque contra la ciudad de Gotham.</h5></th>
+                <th class="centrar , letraVJ"><h5>{{ videojuego1.descripcion }}</h5></th>
               </tr>
           </table> 
             </div></div>
@@ -53,25 +47,31 @@
         <div class="row">
             <div class="col-md-4 col-sm-12">
                 <H3 class="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Plataformas<br>
-                  ° PlayStation 4<br>
-			            ° PlayStation 3</H3>
+                  ° PLAYSTATION <br>
+			            </H3>
                 <br>
                 <h2 clasS="letraVJ , centrar" style="background-color: rgba(255, 255, 255, 0.9); margin-right: 30%;">Trailer</h2><br>
-                <p style="margin-left: 26%;"><a href="https://www.youtube.com/watch?v=L63rDlpJ3_o" target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
+                <p style="margin-left: 26%;"><a href="{{ videojuego1.trailer }}" target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
             </div>
             <div class="col-md-8 col-sm-12">
-              <form action="">
-                <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="comment"
-                    placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
-                <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
+            {% if user.is_authenticated %}
+              <form action="" method="POST" id="formComentario">
+              {% csrf_token %}
+              <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
+                    
+              <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="ComeJ"
+              placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
+              <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
+
               </form>
+            {% endif %}
             </div>
         
       </div>
       <div class="row">
         <div class="col-md-4 col-sm-12">
           <h2 class="centrar , letraVJ" style="background-color: rgba(255, 255, 255, 0.9);margin-right: 30%;">Tiendas disponibles</h2><br>
-                <p style="margin-left: 26%;" ><a href="https://store.playstation.com/es-cl/product/UP1018-CUSA00133_00-BATMANARKHAMKNHT?gclid=Cj0KCQjwt_qgBhDFARIsABcDjOfOLIopViOAxLGw5ixfwnKsifY-slwBNczpP57PHfdhNGfld0SYGbwaAmpoEALw_wcB&gclsrc=aw.ds" target="_blank">
+                <p style="margin-left: 26%;" ><a href="{{videojuego1.link}}" target="_blank">
                     <img src="{% static 'extension./img/PLAYSTATION/logoplay.jpg' %}" alt="Juego Play" class="logoY"></a></p>
         </div>
         <div class="col-md-8 col-sm-12"></div>
