@@ -59,47 +59,51 @@
 <div class="container">
 
 
-      <div class="row" style="text-align: center;margin-top: 5%;">
-          <div class="col-md-12 col-sm-12">
-              <h1 class="titulo">Modificar</h1><br>
-          </div>
-      </div><br>
+    <form action="{% url 'modiJuegos' %}" method="POST" enctype="multipart/form-data" class="fondoform" name="formulario">
+        {% csrf_token %}
 
-          
-      <div class="row">
-          <div class="table-responsive">
-          <table class="table  centrar  letraVJ" style="background-color: rgb(255, 255, 255);" id="table">
-              <tr>
-                <th>VIDEOJUEGOS</th>
-                <TH>BOTONES</TH>
-              </tr>
-              {% for l in ModificarV %}
-              <tr>
-                <td>
-                  
-                  <img src="{{ l.foto.url }}" alt="No foto" style="width: 15%;height: 15%;"><BR>
-                    <h5 >{{ l.nombreV }}</h5>
-                </td>
-                <td>
-                  <br><br><a href="{% url 'MJuegos' l.id_videojuego %}" class="btn btn-primary" >Modificar</a><br><br><br>
-                  <a href="{% url 'eliminarJuego' l.id_videojuego %}" class="btn btn-danger">Eliminar</a>
-                </td>
-              </tr>
-              {% endfor %}
+        <h1 class="centrar letraLo">Modificar Juego </h1>
 
-      </table>
-      </div>
-      </div><br>
+        <div class="grupo">
+            <label>ID Videojuego</label>
+            <input readonly value="{{ datos.id_videojuego }}" type="number" class="form-control" id="idV" name="idV">
+        </div>
 
+        <div class="grupo">
+            <label>Nombre</label>
+            <input type="text" class="form-control" value="{{ datos.nombreV }}" id="nombreV" name="nombreV"><span class="barra" ></span>
+        </div>
 
-  </div>
-</table>
+        <div class="grupo">
+            <label>Descripción</label>
+            <input type="text" class="form-control" value="{{ datos.descripcion }}" id="descripcion" name="descripcion">
+        </div>
 
+        <div class="grupo">
+            <label>Trailer</label>
+            <input type="text" class="form-control" value="{{ datos.trailer }}" id="trailer" name="trailer">
+        </div>
 
+        <div class="grupo">
+            <label>Tienda de videojuego</label>
+            <input type="text" class="form-control" value="{{ datos.link }}" id="link" name="link">
+        </div>
 
+        <div class="grupo">
+            <label>Plataforma</label>
+           <select class="form-control" name="plataformaM" id="plataformaM">
+                {% for r in lista_plataformas %}
+                    {% if r.id_plataforma == datos.plataforma.id_plataforma %}
+                        <option value="{{ r.id_plataforma }}" selected>{{ r.nombrePLA }}</option>
+                    {% else %}
+                        <option value="{{ r.id_plataforma }}">{{ r.nombrePLA }}</option>
+                    {% endif %}
+                {% endfor %}
+           </select>
+        </div>
+        <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
 
-
-
+    </form><br><br>
 
 
 
@@ -126,4 +130,4 @@
 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
 crossorigin="anonymous"></script>
 </body>  
-</html>    
+</html>     

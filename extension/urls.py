@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,Agregar,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,Agregar,CambiRol,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     
@@ -31,5 +31,10 @@ urlpatterns = [
     path('ModificarP/<int:id>', ModificarP,name="ModificarP"),
     path('formAgregarMP', formAgregarMP,name="formAgregarMP"),
     path('Comentarios', Comentarios,name="Comentarios"),
+    path('MJuegos/<int:id>', MJuegos,name="MJuegos"),
     path('ModificarJuegos', ModificarJuegos,name="ModificarJuegos"),
+    path('modiJuegos', modiJuegos,name="modiJuegos"),
+    path('eliminarJuego/<int:id>', eliminarJuego,name="eliminarJuego"),
+    path('CambiarRol/<int:id>', CambiarRol,name="CambiarRol"),
+    path('CambiRol', CambiRol,name="CambiRol"),
 ]

@@ -28,7 +28,47 @@ def Comentarios(request):
 
     return render(request,'extension/Comentarios.html',contexto)
 def ModificarJuegos(request):
-    return render(request,'extension/ModificarJuegos.html')
+    lista = videojuego.objects.all()
+    contexto = {
+        "ModificarV": lista
+    }
+    return render(request,'extension/ModificarJuegos.html',contexto)
+
+def MJuegos(request,id):
+    PlataM = plataforma.objects.all()
+    VideoM = videojuego.objects.get(id_videojuego = id)
+    contexto = {
+        "lista_plataformas": PlataM,
+        "datos": VideoM
+    }
+    return render(request,'extension/MJuegos.html',contexto)
+
+def modiJuegos(request):
+    vIDV = request.POST['idV']
+    vNombreV = request.POST['nombreV']
+    vDesc = request.POST['descripcion']
+    vTrailerV = request.POST['trailer']
+    vLinkV = request.POST['link']
+    vPlataM = request.POST['plataformaM']
+
+                                
+    
+    VideojuegoModi = videojuego.objects.get(id_videojuego = vIDV)
+    VideojuegoModi.nombreV = vNombreV
+    VideojuegoModi.descripcion = vDesc
+    VideojuegoModi.trailer = vTrailerV
+    VideojuegoModi.link = vLinkV
+
+    registroPlataM = plataforma.objects.get(id_plataforma = vPlataM)
+    VideojuegoModi.plataforma_id = registroPlataM
+
+    VideojuegoModi.save()
+    return redirect('ModificarJuegos')
+
+def eliminarJuego(request,id):
+    EliminarV = videojuego.objects.get(id_videojuego = id)
+    EliminarV.delete()
+    return redirect('ModificarJuegos')
 
 def Registrarse(request):
     listaPreguntas = pregunta.objects.all()
@@ -37,19 +77,41 @@ def Registrarse(request):
     }
 
     return render(request,'extension/Registrarse.html', contexto)
-def Administrador(request):
 
+def CambiarRol(request,id):
+    usuariosC = usuario.objects.get(idUsuario = id)
+    rolesC = rol.objects.all()
+
+    contexto={
+        "usuarioCa": usuariosC,
+        "RolesU": rolesC
+    }
+    return render(request,'extension/CambiarRol.html', contexto)
+
+def Administrador(request):
     listaUsuarios = usuario.objects.all()
-    
     listaRoles = rol.objects.all()
+
     contexto = {
         "usuarios": listaUsuarios,
         "Roles" : listaRoles
     }
-
-    
-
     return render(request,'extension/administrador.html', contexto)
+
+def CambiRol(request):
+    vID = request.POST['IDU']
+    vCorreoC = request.POST['NombreUC']
+    vRolC = request.POST['RolC']
+
+    RolCambiar = usuario.objects.get(idUsuario = vID)
+    RolCambiar.correo = vCorreoC
+    
+    registroRolC = rol.objects.get(id_rol = vRolC)
+    RolCambiar.rol_id_rol = registroRolC
+
+    RolCambiar.save()
+    return redirect('Administrador')
+
 def Contacto(request,id):
     if id == 0:
         return render(request,'extension/Contacto.html')
@@ -82,6 +144,7 @@ def Olvidado(request):
         "preguntas": listaPreguntas
     }
     return render(request,'extension/olvidado.html', contexto)
+
 def VerPerfil(request,id):
 
     lista = usuario.objects.get(idUsuario=id)
@@ -277,6 +340,7 @@ def formOlvidado(request):
     except usuario.DoesNotExist:
         messages.error(request, "No hay coincidencias ")
         return redirect('Olvidado')
+    
 def Agregar(request):
     listaPlataforma = plataforma.objects.all()
     contexto = {
@@ -298,11 +362,11 @@ def formAgregarJ(request):
                               trailer=vTrailer, foto=vFotoJ,link=vLink , plataforma_id=vRegistroPlataforma)
     
     if vRegistroPlataforma.id_plataforma==4:
-        return redirect ('Pc')
+        return redirect ('Pc' )
     if vRegistroPlataforma.id_plataforma==1:
         return redirect ('xbox')
     if vRegistroPlataforma.id_plataforma==3:
-        return redirect ('Play')
+        return redirect ('Play ')
     if vRegistroPlataforma.id_plataforma==2:
         return redirect ('Nintendo')
     
