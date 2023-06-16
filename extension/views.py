@@ -229,7 +229,6 @@ def Play(request,id):
         "Pla": lista,
         "juegos1": listaJuegos
     }
-
     return render(request,'extension/Exclusivo Play/playstation.html', contexto)
 
 def Pc(request,id):
@@ -401,13 +400,13 @@ def formAgregarJ(request):
                               trailer=vTrailer, foto=vFotoJ,link=vLink , plataforma_id=vRegistroPlataforma)
     
     if vRegistroPlataforma.id_plataforma==4:
-        return redirect ('Pc' )
+        return redirect ('ModificarJuegos' )
     if vRegistroPlataforma.id_plataforma==1:
-        return redirect ('xbox')
+        return redirect ('ModificarJuegos')
     if vRegistroPlataforma.id_plataforma==3:
-        return redirect ('Play ')
+        return redirect ('ModificarJuegos ')
     if vRegistroPlataforma.id_plataforma==2:
-        return redirect ('Nintendo')
+        return redirect ('ModificarJuegos')
     
 def formAgregarM(request):
     vClaveN = request.POST['passwordN']
