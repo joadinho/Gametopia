@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,Agregar,CambiRol,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,Agregar,eliminarPlata,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     
@@ -37,4 +37,10 @@ urlpatterns = [
     path('eliminarJuego/<int:id>', eliminarJuego,name="eliminarJuego"),
     path('CambiarRol/<int:id>', CambiarRol,name="CambiarRol"),
     path('CambiRol', CambiRol,name="CambiRol"),
+    path('AgregarRP', AgregarRP,name="AgregarRP"),
+    path('AgregarPla', AgregarPla,name="AgregarPla"),
+    path('FormAgregarR', FormAgregarR,name="FormAgregarR"),
+    path('FormAgregarP', FormAgregarP,name="FormAgregarP"),
+    path('eliminarRol/<int:id>', eliminarRol,name="eliminarRol"),
+    path('eliminarPlata/<int:id>', eliminarPlata,name="eliminarPlata"),
 ]

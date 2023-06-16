@@ -24,9 +24,8 @@ def Comentarios(request):
     "comentarios": listaComentarios
 
     }
-
-
     return render(request,'extension/Comentarios.html',contexto)
+
 def ModificarJuegos(request):
     lista = videojuego.objects.all()
     contexto = {
@@ -125,9 +124,51 @@ def Contacto(request,id):
 def Login(request):
     logout(request)
     return render(request,'extension/Login.html')
+
 def Modificar(request):
 
     return render(request,'extension/Modificar.html')
+
+def eliminarRol(request,id):
+    EliminarR = rol.objects.get(id_rol = id)
+    EliminarR.delete()
+    return redirect('AgregarRP')
+
+def eliminarPlata(request,id):
+    EliminarP = plataforma.objects.get(id_plataforma = id)
+    EliminarP.delete()
+    return redirect('AgregarPla')
+
+def AgregarRP(request):
+    listaRols = rol.objects.all()
+    
+    contexto={
+        "Roles" : listaRols
+        
+    }
+    return render(request,'extension/AgregarRP.html',contexto)
+
+def AgregarPla(request):
+    listaPlat = plataforma.objects.all()
+    
+    contexto={
+        "Plataforma" : listaPlat
+    }
+    return render(request,'extension/AgregarPla.html',contexto)
+
+def FormAgregarR(request):
+
+    vRolN = request.POST['RolName']
+    rol.objects.create( nombreR=vRolN )
+
+    return redirect('AgregarRP')
+
+def FormAgregarP(request):
+
+    vPlata = request.POST['PlataformaName']
+    plataforma.objects.create( nombrePLA=vPlata )
+
+    return redirect('AgregarPla')
 
 def ModificarP(request,id):
     lista = usuario.objects.get(idUsuario=id)
@@ -205,9 +246,7 @@ def Pc(request,id):
         "PC": lista,
         "juegos2": listaJuegos
     }
-
     return render(request,'extension/Exclusivo PC/pc.html',contexto)
-
 
 def Nintendo(request, id):
     if id == 0:
@@ -304,6 +343,7 @@ def BMesa(request, id):
             "videojuego2": juego
         }
         return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
+    
 def plantillaMenu(request,id):
     lista = usuario.objects.get(idUsuario=id)
     contexto ={
@@ -317,7 +357,6 @@ def formComentario(request):
     vComentario = request.POST['ComeJ']
 
     comentario
-
     
 def formOlvidado(request):
     try: 
@@ -443,7 +482,7 @@ def formAgregarU(request):
                             telefono=vTelefonoU, fechaU=vFechaU, fotoU=vFotoU, pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta, rol_id_rol=vRegistroRol) 
     
     user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)
-    return redirect('Registrarse')
+    return redirect('Login')
 
 def formSesion(request):
     try:

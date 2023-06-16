@@ -43,6 +43,7 @@
               <li class="nav-item active">
                   <a class="nav-link" href="{% url 'ModificarJuegos' %}">Modificar Juegos</a>
               </li>
+
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'Agregar' %}">Agregar Juegos</a>
               </li>
@@ -66,42 +67,53 @@
 
 <div class="container">
 
-
-      <div class="row" style="text-align: center;margin-top: 5%;">
-          <div class="col-md-12 col-sm-12">
-              <h1 class="titulo">Modificar</h1><br>
+    <br>
+    <BR>
+    <br>
+    <form action="{% url 'FormAgregarP' %}" method="POST" id="formPlataforma" class="fondoform" enctype="multipart/form-data">
+        {% csrf_token %}
+            <h1 class="centrar letraLo">Agregar Plataforma</h1>
+            
+            <div class="grupo">
+                <input type="text" name="PlataformaName" id="PlataformaName"><span class="barra" ></span>
+                <label for=""><h5>PLATAFORMA</h5></label>
+            </div>
+          <div class="row">
+            <div class="col-md-12">
+              <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); ">
+            </div>
           </div>
-      </div><br>
+      </form><br>
 
-          
       <div class="row">
-          <div class="table-responsive">
-          <table class="table  centrar  letraVJ" style="background-color: rgb(255, 255, 255);" id="table">
-              <tr>
-                <th>VIDEOJUEGOS</th>
-                <TH>BOTONES</TH>
-              </tr>
-              {% for l in ModificarV %}
-              <tr>
-                <td>
-                  
-                  <img src="{{ l.foto.url }}" alt="No foto" style="width: 15%;height: 15%;"><BR>
-                    <h5 >{{ l.nombreV }}</h5>
-                </td>
-                <td>
-                  <br><br><a href="{% url 'MJuegos' l.id_videojuego %}" class="btn btn-primary" >Modificar</a><br><br><br>
-                  <a href="{% url 'eliminarJuego' l.id_videojuego %}" class="btn btn-danger">Eliminar</a>
-                </td>
-              </tr>
-              {% endfor %}
+        <div class="table-responsive">
+        <table class="table">
+            <tr>
+              <th style="text-align: center;">ID Plataforma</th>
+              <th style="text-align: center;">Nombre Plataforma</th>
+              <th style="text-align: center;">Boton</th>
+              
+            </tr>
 
-      </table>
-      </div>
-      </div><br>
+            {% for p in Plataforma %}
+            <tr>
+              <td style="text-align: center;">{{ p.id_plataforma  }}</td>
+              <td style="text-align: center;">{{ p.nombrePLA  }}</td>
+              <td style="text-align: center;"><a  href="{% url 'eliminarPlata' p.id_plataforma %}" value="Eliminar Plataforma" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);">Eliminar Plataforma</a></td>
+            </tr>
+            
+
+            {% endfor %}
+            
+          </table>
+        </div>
+    </div><br><br>
 
 
-  </div>
-</table>
+
+
+
+
 
 
 
@@ -134,4 +146,4 @@
 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
 crossorigin="anonymous"></script>
 </body>  
-</html>    
+</html> 
