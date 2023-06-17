@@ -106,7 +106,6 @@
                   {% if user.is_authenticated %}
                     <form action="{% url 'formComentario' %}" method="POST" id="formComentario">
                     {% csrf_token %}
-                    <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
                     
                     <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" 
                         placeholder="Deje su comentario aquí...." id="ComentarioJ" name="ComentarioJ" required></textarea></p>

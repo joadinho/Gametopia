@@ -99,17 +99,19 @@
                 <p style="margin-left: 26%;"><a href="{{ videojuego1.trailer }}" target="_blank" ><img src="{% static 'extension./img/PLAYSTATION/logoYoutube.png' %}"  alt="youtube"  class="logoY" ></a></p>
             </div>
             <div class="col-md-8 col-sm-12">
-            {% if user.is_authenticated %}
-              <form action="" method="POST" id="formComentario">
-              {% csrf_token %}
-              <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
-                    
-              <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" name="ComeJ"
-              placeholder="Deje su comentario aquí...." id="ComeJ" required></textarea></p>
-              <p class="centrar" style="margin-left: 12%;margin-right: 12%;"><input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
-
-              </form>
-            {% endif %}
+              {% if user.is_authenticated %}
+                <form action="{% url 'formComentarioBT' %}" method="POST" id="formComentario">
+              
+                {% csrf_token %}
+  
+                  <p style="margin-left: 12%;margin-right: 12%;"><textarea class="textarea" rows="6" cols="50" 
+                  placeholder="Deje su comentario aquí...." id="ComentarioJ" name="ComentarioJ" required></textarea></p>
+                  <input value="{{ videojuego1.id_videojuego }}" name="id_com" id="id_com" readonly style="color:rgba(240, 255, 255, 0)" >
+                  <p class="centrar" style="margin-left: 12%;margin-right: 12%;">
+                  <input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
+                        
+                </form>
+              {% endif %}
             </div>
         
       </div>
@@ -121,7 +123,29 @@
         </div>
         <div class="col-md-8 col-sm-12"></div>
         
-      </div><br><br>
+      </div><br>
+
+      <h3 style="color: rgb(5, 5, 5);background-color: rgba(167, 167, 167, 0.851);text-align: center;">Comentarios </h3>
+          <br>
+          <div class="row">
+            <div class="table-responsive">
+            <table class="table">
+                <tr>
+                  <th>Usuario</th>
+                  <th>Comentario</th>
+                  
+                </tr>
+
+                {% for u in Comentario %}
+                <tr>
+                  <td>{{ u.usuario_id_usuario.nombreU }} {{ u.usuario_id_usuario.apellido }}</td>
+                  <td>{{ u.comentarios }}</td>
+                </tr>
+                {% endfor %}
+                
+              </table>
+            </div>
+        </div>
             
 
 

@@ -55,13 +55,12 @@ class videojuego(models.Model):
 
 class comentario(models.Model):
     id_comentario     = models.AutoField(primary_key = True, verbose_name='id comentario')
-    comentarios = models.TextField(verbose_name='comentario')
-    tituloC           = models.CharField(max_length=200, verbose_name='titulo comentario')
+    comentarios = models.CharField(max_length=254,verbose_name='comentario')
     usuario_id_usuario = models.ForeignKey(usuario,on_delete=models.CASCADE)
     videojuego_id_videojuego = models.ForeignKey(videojuego,on_delete=models.CASCADE)
 
     def __str__(self)-> str:
-        return self.tituloC
+        return self.comentarios
     
 
 

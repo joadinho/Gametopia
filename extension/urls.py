@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,Agregar,eliminarComentario,VerComentarios,eliminarPlata,formComentario,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,Agregar,eliminarComentario,formComentarioA,formComentarioBT,formComentarioBL,VerComentarios,eliminarPlata,formComentario,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,Contacto,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     
@@ -46,4 +46,7 @@ urlpatterns = [
     path('formComentario', formComentario,name="formComentario"),
     path('VerComentarios/<int:id>', VerComentarios,name="VerComentarios"),
     path('eliminarComentario/<int:id>', eliminarComentario,name="eliminarComentario"),
+    path('formComentarioA', formComentarioA,name="formComentarioA"),
+    path('formComentarioBL', formComentarioBL,name="formComentarioBL"),
+    path('formComentarioBT', formComentarioBT,name="formComentarioBT"),
 ]

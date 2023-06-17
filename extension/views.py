@@ -273,16 +273,20 @@ def Batman(request, id):
         vID = vUser.idUsuario
 
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
             "ID" : vID,
-            "videojuego1": juego
+            "videojuego1": juego,
+            "Comentario" : Vcomen
         }
         return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html', contexto)
     else:
 
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
-            "videojuego1" : juego
+            "videojuego1" : juego,
+            "Comentario" : Vcomen
         }
         return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html', contexto)
 
@@ -317,15 +321,19 @@ def Animal(request, id):
         vID = vUser.idUsuario
         
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
             "ID" : vID,
-            "videojuego3": juego
+            "videojuego3": juego,
+            "Comentario" : Vcomen
         }
         return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html', contexto)
     
     else:
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
+            "Comentario" : Vcomen,
             "videojuego3": juego
         }
         return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html', contexto)
@@ -337,16 +345,20 @@ def BMesa(request, id):
         vID = vUser.idUsuario
         
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
             "ID" : vID,
-            "videojuego2": juego
+            "videojuego2": juego,
+            "Comentario" : Vcomen
         }
         return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
     
     else:
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
-            "videojuego2": juego
+            "videojuego2": juego,
+            "Comentario" : Vcomen
         }
         return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
     
@@ -529,7 +541,6 @@ def formSesion(request):
         print(e)
 
 def formComentario(request):
-    vTituloCo =request.POST['comentarioT']
     vComentario =request.POST['ComentarioJ']
     vIDComen =request.POST['id_com']
     
@@ -537,9 +548,39 @@ def formComentario(request):
     vCorreo = request.user.username
     vUser = usuario.objects.get(correo=vCorreo)
     vJuego = videojuego.objects.get(id_videojuego=vIDComen)
-    comentario.objects.create(tituloC=vTituloCo, comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    comentario.objects.create( comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
     return redirect(f'DeadR/{vIDComen}')
+
+def formComentarioA(request):
+    vComentario =request.POST['ComentarioJ']
+    vIDComen =request.POST['id_com']
     
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vJuego = videojuego.objects.get(id_videojuego=vIDComen)
+    comentario.objects.create(comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    return redirect(f'Animal/{vIDComen}')
+
+def formComentarioBL(request):
+    vComentario =request.POST['ComentarioJ']
+    vIDComen =request.POST['id_com']
+    
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vJuego = videojuego.objects.get(id_videojuego=vIDComen)
+    comentario.objects.create(comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    return redirect(f'BMesa/{vIDComen}')
+
+def formComentarioBT(request):
+    vComentario =request.POST['ComentarioJ']
+    vIDComen =request.POST['id_com']
+    
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vJuego = videojuego.objects.get(id_videojuego=vIDComen)
+    comentario.objects.create(comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    return redirect(f'Batman/{vIDComen}')
+
 def VerComentarios(request,id):
     comen = comentario.objects.filter(usuario_id_usuario=id)
 
