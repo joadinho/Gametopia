@@ -36,34 +36,34 @@
     
 {% block Xbox %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'xbox' xbo.idUsuario %}">Xbox</a>
+    <a class="nav-link disabled  cuX1" href="{% url 'xbox' xbo.idUsuario %}">Xbox</a>
 </li>
 {% endblock Xbox %}
     
 {% block Play %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Play' xbo.idUsuario %}">PlayStation</a>
+    <a class="nav-link disabled  cuP1" href="{% url 'Play' xbo.idUsuario %}">PlayStation</a>
 </li>
 {% endblock Play %}
     
 {% block PC %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Pc' xbo.idUsuario %}">PC</a>
+    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' xbo.idUsuario %}">PC</a>
 </li>
 {% endblock PC %}
     
 {% block Contacto %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' xbo.idUsuario %}">Contactanos</a>
+    <a class="nav-link disabled  cuX1" href="{% url 'Contacto' xbo.idUsuario %}">Contactanos</a>
 </li>
 {% endblock Contacto %}
     
 {% block verperfil %}
-<a class="dropdown-item " href="{% url 'VerPerfil' xbo.idUsuario %}">Ver perfil</a>
+<a class="dropdown-item cuX1" href="{% url 'VerPerfil' xbo.idUsuario %}">Ver perfil</a>
 {% endblock verperfil %}
     
 {% block Modificarperfil %}
-<a class="dropdown-item " href="{% url 'ModificarP' xbo.idUsuario %}">Modificar Perfil</a>
+<a class="dropdown-item cuX1" href="{% url 'ModificarP' xbo.idUsuario %}">Modificar Perfil</a>
 {% endblock Modificarperfil %}
 
 {% block container %}

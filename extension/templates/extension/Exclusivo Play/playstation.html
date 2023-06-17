@@ -35,34 +35,34 @@
     
 {% block Xbox %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'xbox' Pla.idUsuario %}">Xbox</a>
+    <a class="nav-link disabled  cuX1" href="{% url 'xbox' Pla.idUsuario %}">Xbox</a>
 </li>
 {% endblock Xbox %}
     
 {% block Play %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Play' Pla.idUsuario %}">PlayStation</a>
+    <a class="nav-link disabled  cuP1" href="{% url 'Play' Pla.idUsuario %}">PlayStation</a>
 </li>
 {% endblock Play %}
     
 {% block PC %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Pc' Pla.idUsuario %}">PC</a>
+    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' Pla.idUsuario %}">PC</a>
 </li>
 {% endblock PC %}
     
 {% block Contacto %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' Pla.idUsuario %}">Contactanos</a>
+    <a class="nav-link disabled  cuP1" href="{% url 'Contacto' Pla.idUsuario %}">Contactanos</a>
 </li>
 {% endblock Contacto %}
     
 {% block verperfil %}
-<a class="dropdown-item " href="{% url 'VerPerfil' Pla.idUsuario %}">Ver perfil</a>
+<a class="dropdown-item cuP1" href="{% url 'VerPerfil' Pla.idUsuario %}">Ver perfil</a>
 {% endblock verperfil %}
     
 {% block Modificarperfil %}
-<a class="dropdown-item " href="{% url 'ModificarP' Pla.idUsuario %}">Modificar Perfil</a>
+<a class="dropdown-item cuP1" href="{% url 'ModificarP' Pla.idUsuario %}">Modificar Perfil</a>
 {% endblock Modificarperfil %}
 
 {% block container %}
@@ -77,7 +77,7 @@
         {% for i in juegos1 %}
             <div class="col-md-3 col-sm-6 centrar">
                    
-            <a class="cuX1" href="{% url 'Batman' i.id_videojuego %}" >
+            <a class="cuP1" href="{% url 'Batman' i.id_videojuego %}" >
             <img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
             </div>
         {% endfor %}

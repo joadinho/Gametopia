@@ -40,34 +40,34 @@
 
 {% block Xbox %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'xbox' ID %}">Xbox</a>
+    <a class="nav-link disabled  cuX1" href="{% url 'xbox' ID %}">Xbox</a>
 </li>
 {% endblock Xbox %}
 
 {% block Play %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Play' ID %}">PlayStation</a>
+    <a class="nav-link disabled  cuP1" href="{% url 'Play' ID %}">PlayStation</a>
 </li>
 {% endblock Play %}
 
 {% block PC %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Pc' ID %}">PC</a>
+    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' ID %}">PC</a>
 </li>
 {% endblock PC %}
 
 {% block Contacto %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' ID %}">Contactanos</a>
+    <a class="nav-link disabled  cuP1" href="{% url 'Contacto' ID %}">Contactanos</a>
 </li>
 {% endblock Contacto %}
 
 {% block verperfil %}
-<a class="dropdown-item " href="{% url 'VerPerfil' ID %}">Ver perfil</a>
+<a class="dropdown-item cuP1" href="{% url 'VerPerfil' ID %}">Ver perfil</a>
 {% endblock verperfil %}
 
 {% block Modificarperfil %}
-<a class="dropdown-item " href="{% url 'ModificarP' ID %}">Modificar Perfil</a>
+<a class="dropdown-item cuP1" href="{% url 'ModificarP' ID %}">Modificar Perfil</a>
 {% endblock Modificarperfil %}
 
 {% block container %}

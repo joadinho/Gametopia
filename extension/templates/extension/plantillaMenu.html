@@ -49,7 +49,7 @@
               {% endblock Play %}
               {% else  %}
               <li class="nav-item active">
-                <a class="nav-link disabled , cuN1" href="{% url 'Play' 0 %}">PlayStation </a>
+                <a class="nav-link disabled , cuP1" href="{% url 'Play' 0 %}">PlayStation </a>
               </li>
               {% endif %}
 
@@ -58,7 +58,7 @@
               {% endblock Xbox %}
               {% else  %}
               <li class="nav-item active">
-                <a class="nav-link disabled , cuN1" href="{% url 'xbox' 0 %}">Xbox</a>
+                <a class="nav-link disabled , cuX1" href="{% url 'xbox' 0 %}">Xbox</a>
               </li>
               {% endif %}
               
@@ -76,7 +76,7 @@
               {% endblock PC %}
               {% else  %}
               <li class="nav-item active">
-                <a class="nav-link disabled , cuN1" href="{% url 'Pc' 0 %}">PC</a>
+                <a class="nav-link disabled , cuPC1" href="{% url 'Pc' 0 %}">PC</a>
               </li>
               {% endif %}
 
@@ -85,12 +85,12 @@
               {% endblock Contacto %}
               {% else  %}
               <li class="nav-item active">
-                <a class="nav-link disabled , cuN1" href="{% url 'Contacto' 0 %}">Contactanos</a>
+                <a class="nav-link disabled" href="{% url 'Contacto' 0 %}">Contactanos</a>
               </li>
               {% endif %}
 
             <li class="nav-item dropdown active ">
-              <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle cuPC1"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Perfil
               </a>
               <div class="dropdown-menu " aria-labelledby="navbarDropdown">
