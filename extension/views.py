@@ -43,15 +43,15 @@ def MJuegos(request,id):
     return render(request,'extension/MJuegos.html',contexto)
 
 def modiJuegos(request):
+
+    vFotoM = request.FILES.get('fotoMV' , '')
     vIDV = request.POST['idV']
     vNombreV = request.POST['nombreV']
     vDesc = request.POST['descripcion']
     vTrailerV = request.POST['trailer']
     vLinkV = request.POST['link']
     vPlataM = request.POST['plataformaM']
-
-                                
-    
+                  
     VideojuegoModi = videojuego.objects.get(id_videojuego = vIDV)
     VideojuegoModi.nombreV = vNombreV
     VideojuegoModi.descripcion = vDesc
@@ -60,6 +60,9 @@ def modiJuegos(request):
 
     registroPlataM = plataforma.objects.get(id_plataforma = vPlataM)
     VideojuegoModi.plataforma_id = registroPlataM
+
+    if vFotoM!='':
+        VideojuegoModi.foto=vFotoM
 
     VideojuegoModi.save()
     return redirect('ModificarJuegos')
@@ -290,16 +293,20 @@ def DeadR(request, id):
         vID = vUser.idUsuario
         
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
             "ID" : vID,
-            "videojuego": juego
+            "videojuego": juego,
+            "comenT" : Vcomen
         }
         return render(request,'extension/Exclusivo Xbox/deadrising.html', contexto)
     
     else:
         juego = videojuego.objects.get(id_videojuego = id)
+        Vcomen= comentario.objects.filter(videojuego_id_videojuego=id)
         contexto = {
-            "videojuego": juego
+            "videojuego": juego,
+            "comenT" : Vcomen
         }
         return render(request,'extension/Exclusivo Xbox/deadrising.html', contexto)
 
@@ -350,12 +357,6 @@ def plantillaMenu(request,id):
 
     }
     return render(request,'extension/plantillaMenu.html',contexto)
-
-def formComentario(request):
-    vTitulo = request.POST['comentarioT']
-    vComentario = request.POST['ComeJ']
-
-    comentario
     
 def formOlvidado(request):
     try: 
@@ -528,11 +529,26 @@ def formSesion(request):
         print(e)
 
 def formComentario(request):
-    vTituloCo = ['comentarioT']
-    vComentario = ['ComentarioJ']
-    vIDComen = ['id_com']
+    vTituloCo =request.POST['comentarioT']
+    vComentario =request.POST['ComentarioJ']
+    vIDComen =request.POST['id_com']
+    
+    
     vCorreo = request.user.username
     vUser = usuario.objects.get(correo=vCorreo)
     vJuego = videojuego.objects.get(id_videojuego=vIDComen)
+    comentario.objects.create(tituloC=vTituloCo, comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    return redirect(f'DeadR/{vIDComen}')
     
+def VerComentarios(request,id):
+    comen = comentario.objects.filter(usuario_id_usuario=id)
 
+    contexto={
+        "comenT": comen
+    }
+    return render(request,'extension/VerComentarios.html', contexto)
+
+def eliminarComentario(request,id):
+    EliminarC = comentario.objects.get(id_comentario = id)
+    EliminarC.delete()
+    return redirect('Comentarios')

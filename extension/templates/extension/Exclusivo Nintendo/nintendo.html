@@ -79,7 +79,7 @@
             {% for i in juegos3 %}
                 <div class="col-md-3 col-sm-6 centrar">
                        
-                <a class="cuX1" href="{% url 'Animal' i.id_videojuego %}" >
+                <a class="cuN1" href="{% url 'Animal' i.id_videojuego %}" >
                 <img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
                 </div>
             {% endfor %}

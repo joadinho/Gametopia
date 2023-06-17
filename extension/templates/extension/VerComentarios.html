@@ -65,29 +65,27 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 <div class="container">
 
   <div class="row">
-    <div class="col-md-2 col-sm-3"></div>
-    <div class="col-md-8 col-sm-6">
+    <div class="table-responsive">
     <table class="table">
+        <tr>
+          <th>Usuario</th>
+          <th>Comentario</th>
+          <th>VideoJuego</th>
+          <th>Boton</th>
+        </tr>
 
-        {% for u in usuarios %}
-          
-          <tr><th class="centrar"> {{ u.nombreU }} {{u.apellido}}</th>
-          </tr>
-          <th style="text-align:center"><a  href="{% url 'VerComentarios' u.idUsuario %}" value="Modificar Perfil" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);">Ver Comentario</a></th> 
-          
+        {% for u in comenT %}
+        <tr>
+          <td>{{ u.usuario_id_usuario.nombreU }} {{ u.usuario_id_usuario.apellido }}</td>
+          <td>{{ u.comentarios }}</td>
+          <td>{{ u.videojuego_id_videojuego.nombreV }}</td>
+          <td><a  href="{% url 'eliminarComentario' u.id_comentario %}" value="Eliminar Comentario" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);">Eliminar</a></td>
+        </tr>
         {% endfor %}
         
-
-        
-    </table>  
+      </table>
     </div>
-    <div class="col-md-2 col-sm-3"></div>
-
-    
-     
-
-  </div>
-  
+</div>
   
 
 
@@ -129,4 +127,4 @@ integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEUL
 crossorigin="anonymous"></script>
 
 </body>  
-</html>    
+</html>

@@ -104,7 +104,7 @@
                 <div class="col-md-8 col-sm-12">
 
                   {% if user.is_authenticated %}
-                    <form action="" method="POST" id="formComentario">
+                    <form action="{% url 'formComentario' %}" method="POST" id="formComentario">
                     {% csrf_token %}
                     <input type="text" placeholder="Titulo de comentario" name="comentarioT" id="comentarioT" style="background-color: rgba(255, 255, 255, 0.9); width: 76%; margin-left: 12%;margin-right: 12%;";><br>
                     
@@ -129,10 +129,30 @@
             
           </div>
           
-          <br><br><br>
-  
-  
-  
+          <br>
+          
+          <h3 style="color: rgb(5, 5, 5);background-color: rgba(167, 167, 167, 0.851);text-align: center;">Comentarios </h3>
+          <br>
+          <div class="row">
+            <div class="table-responsive">
+            <table class="table">
+                <tr>
+                  <th>Usuario</th>
+                  <th>Comentario</th>
+                  
+                </tr>
+
+                {% for u in comenT %}
+                <tr>
+                  <td>{{ u.usuario_id_usuario.nombreU }} {{ u.usuario_id_usuario.apellido }}</td>
+                  <td>{{ u.comentarios }}</td>
+                </tr>
+                {% endfor %}
+                
+              </table>
+            </div>
+        </div>
+          
   
   
   
