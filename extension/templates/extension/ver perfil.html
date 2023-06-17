@@ -37,19 +37,19 @@
     
 {% block Play %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Play' usuarios.idUsuario %}">PlayStation</a>
+    <a class="nav-link disabled  cuP1" href="{% url 'Play' usuarios.idUsuario %}">PlayStation</a>
 </li>
 {% endblock Play %}
     
 {% block PC %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Pc' usuarios.idUsuario %}">PC</a>
+    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' usuarios.idUsuario %}">PC</a>
 </li>
 {% endblock PC %}
     
 {% block Contacto %}
 <li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' usuarios.idUsuario %}">Contactanos</a>
+    <a class="nav-link disabled " href="{% url 'Contacto' usuarios.idUsuario %}">Contactanos</a>
 </li>
 {% endblock Contacto %}
     
