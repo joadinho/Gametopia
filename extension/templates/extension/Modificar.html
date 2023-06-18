@@ -27,7 +27,7 @@
         <div class="row" style="margin-top: 50px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="{% url 'formAgregarM' %}" method="POST" name="" id="formModificar" class="fondoform" enctype="multipart/form-data">
+                <form action="{% url 'formAgregarM' %}" method="POST" name="formModificar" id="formModificar" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
                   <h1  class="centrar , letraLo ,cu ">Modificar perfil</h1>
 
@@ -52,11 +52,11 @@
                       <label for=""><h5>Contraseña Actual</h5></label>
                   </div>
                     <div class="grupo">
-                      <input type="password" name="passwordN" id="passwordN"><span class="barra" ></span>
+                      <input type="password" name="passwordN" required id="passwordN"><span class="barra" ></span>
                       <label for=""><h5>Contraseña Nueva</h5></label>
                   </div>
                   <div class="grupo">
-                          <input type="password" name="con_passwordM" id="con_passwordM"><span class="barra"  ></span>
+                          <input type="password" name="con_passwordM" required id="con_passwordM"><span class="barra"  ></span>
                           <label for=""><h5>Confirmar Contraseña</h5></label>
                       </div>
 

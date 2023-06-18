@@ -2,37 +2,17 @@ $(document).ready(function(){
     $("#formModificar").submit(function(e){
         
 
-        var nombre_modi    = $("#nombreM").val();
         var clave_modi     = $("#passwordM").val();
         var con_clave_modi = $("#con_passwordM").val();
-        var email_modi     = $("#emailM").val();
+        var clave_modiP     = $("#claveN").val();
+        var con_clave_modiP = $("#claveCN").val();
+        
 
         let msjMostrarModi = "";
         let enviar = false;
 
-
-        //validar nombre
-        if(nombre_modi.trim().length < 4 || nombre_modi.trim().length > 10){
-            msjMostrarModi = msjMostrarModi + "-El nombre debe tener entre 4 y 10 caracteres";
-            enviar = true;
-            e.preventDefault();
-        }
-
-        var letra = nombre_modi.trim().charAt(0);
-        if(!esMayuscula(letra)){
-            msjMostrarModi += "<br>-El nombre debe comenzar con mayúscula";
-            enviar = true;
-            e.preventDefault();
-        }
-    
-        
-        if(nombre_modi.trim() == ""){
-            msjMostrarModi += "<br>-El campo nombre no puede estar vacío";
-            enviar = true;
-            e.preventDefault();
-        }
-
         //validar password
+
         if(clave_modi.trim().length < 8 || clave_modi.trim().length > 12){
             msjMostrarModi = msjMostrarModi + "<br>-Clave inválida debe tener entre 8 y 12 caracteres";
             enviar = true;
@@ -69,6 +49,44 @@ $(document).ready(function(){
             e.preventDefault();
         }
 
+        //validar passwordP
+
+        if(clave_modiP.trim().length < 8 || clave_modiP.trim().length > 12){
+            msjMostrarModi = msjMostrarModi + "<br>-Clave inválida debe tener entre 8 y 12 caracteres";
+            enviar = true;
+            e.preventDefault();
+        }
+
+        if(clave_modiP.trim()  == ""){
+            msjMostrarModi += "<br>-Clave inválida no puede estar vacío";
+            enviar = true;
+            e.preventDefault();
+        }
+
+        if (!clave_modiP.match(/([A-Z])/)){
+           msjMostrarModi += "<br>-Clave inválida Falta una letra mayúscula";
+            enviar = true;
+            e.preventDefault();
+        }
+
+        if (!clave_modiP.match(/([a-z])/)){
+            msjMostrarModi += "<br>-Clave inválida Falta una letra minúscula";
+             enviar = true;
+             e.preventDefault();
+         }
+
+         if (!clave_modiP.match(/([0-9])/)){
+            msjMostrarModi += "<br>-Clave inválida Debe contener al menos un numero";
+            enviar = true;
+            e.preventDefault();
+         }
+
+        if (!clave_modiP.match(/([!,%,&,@,#,$,^,,?,_,~,.])/)){
+            msjMostrarModi += "<br>-Clave inválida Debe contener un caracter especial  !,%,&,@,#,$,^,,?,_,~,.";
+            enviar = true;
+            e.preventDefault();
+        }
+
         //valida la clave confirmada
 
         if (con_clave_modi.trim() != clave_modi.trim()){
@@ -77,26 +95,13 @@ $(document).ready(function(){
             e.preventDefault();
         }
 
-        //valida correo
-
-        if((email_modi).trim().indexOf('@', 0) == -1 || (email_modi).trim().indexOf('.', 0) == -1) {
-            msjMostrarModi += "<br>-El correo electrónico introducido es inválido. Debe contener un @";
-            enviar = true;
-            e.preventDefault();
-        }
-        var emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/; 
-
-        if (!emailRegex.test(email_modi)) {
-            msjMostrarModi += "<br>-No debe comenzar con @";
+        //valida la clave confirmadaP
+        if (con_clave_modiP.trim() != con_clave_modiP.trim()){
+            msjMostrarModi += "<br>-La clave confirmada no es la misma";
             enviar = true;
             e.preventDefault();
         }
 
-        if(email_modi.trim() == ""){
-            msjMostrarModi += "<br>-El campo correo no puede estar vacío";
-            enviar = true;
-            e.preventDefault();
-        }
 
 
 

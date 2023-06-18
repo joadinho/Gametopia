@@ -90,27 +90,27 @@
 
         <div class="grupo">
             <label>Nombre</label>
-            <input type="text" class="form-control" value="{{ datos.nombreV }}" id="nombreV" name="nombreV"><span class="barra" ></span>
+            <input type="text" class="form-control"  required value="{{ datos.nombreV }}" id="nombreV" name="nombreV"><span class="barra" ></span>
         </div>
 
         <div class="grupo">
             <label>Descripción</label>
-            <input type="text" class="form-control" value="{{ datos.descripcion }}" id="descripcion" name="descripcion">
+            <input type="text" class="form-control" required value="{{ datos.descripcion }}" id="descripcion" name="descripcion">
         </div>
 
         <div class="grupo">
             <label>Trailer</label>
-            <input type="text" class="form-control" value="{{ datos.trailer }}" id="trailer" name="trailer">
+            <input type="text" class="form-control" required value="{{ datos.trailer }}" id="trailer" name="trailer">
         </div>
 
         <div class="grupo">
             <label>Tienda de videojuego</label>
-            <input type="text" class="form-control" value="{{ datos.link }}" id="link" name="link">
+            <input type="text" class="form-control" required value="{{ datos.link }}" id="link" name="link">
         </div>
 
         <div class="grupo">
             <label>Plataforma</label>
-           <select class="form-control" name="plataformaM" id="plataformaM">
+           <select class="form-control" name="plataformaM" required id="plataformaM">
                 {% for r in lista_plataformas %}
                     {% if r.id_plataforma == datos.plataforma.id_plataforma %}
                         <option value="{{ r.id_plataforma }}" selected>{{ r.nombrePLA }}</option>

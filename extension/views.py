@@ -449,13 +449,15 @@ def formAgregarM(request):
 
     listaM.save()
 
+
     u = User.objects.get(username=vCorreo)
     u.set_password(vClaveN)
     u.save()
 
     contexto = {
         "modificarU": listaM
-    } 
+    }
+    messages.success(request,"Usuario Modificado") 
     return render(request,'extension/Login.html',contexto)
 
 def formAgregarMP(request):
@@ -484,6 +486,7 @@ def formAgregarMP(request):
     contexto = {
         "modificarU": listaM
     } 
+    messages.success(request,"Usuario Modificado") 
     return render(request,'extension/Login.html',contexto)
 
 def formAgregarU(request):
