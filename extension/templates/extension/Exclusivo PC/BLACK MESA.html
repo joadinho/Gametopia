@@ -106,7 +106,21 @@
                   <p class="centrar" style="margin-left: 12%;margin-right: 12%;">
                   <input value="Enviar" type="submit" class="btn btn , cu1"  style="color: rgb(255, 255, 255);background-color: rgba(97, 97, 97, 0.973);"></p>
                         
-                </form>
+                {% if messages %}
+                  <ul   class="" style="text-align: center; background-color: rgba(167, 167, 167, 0.851); margin-left: 12%;margin-right: 12%;">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                  </ul>
+                {% endif %}
+                  </form>
+                  
+    
+    
+              {% else %}
+    
+                <p class="centrar letraVJ" style="background-color: rgba(167, 167, 167, 0.851);"><a href="{% url 'Login'  %}">   Si quieres dejar un comentario, inicia sesion.   </a></p>
+                  
               {% endif %}
     
             </div>

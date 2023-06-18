@@ -7,7 +7,8 @@ $(document).ready(function(){
         var con_clave = $("#con_password").val();
         var correo    = $("#email").val();
         var contacto  = $("#telefono").val();
-        var f_nac     = $("#fecha").val();       
+        var f_nac     = $("#fecha").val(); 
+        var res       = $("#respuesta").val();      
         
         let msjMostrar = "";
         let enviar = false;
@@ -112,6 +113,14 @@ $(document).ready(function(){
 
         }
 
+        //valida la respuesta
+
+        if(res.trim() == ""){
+            msjMostrar += "<br>-El campo respuesta no puede estar vacío.";
+            enviar = true;
+            e.preventDefault();
+        }
+
 
         //validar correo
 
@@ -186,6 +195,8 @@ $(document).ready(function(){
         else{
             $("#mensaje_register").html("-Registrado correctamente.");
         }
+
+        
 
         
 

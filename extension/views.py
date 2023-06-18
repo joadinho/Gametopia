@@ -549,6 +549,7 @@ def formComentario(request):
     vUser = usuario.objects.get(correo=vCorreo)
     vJuego = videojuego.objects.get(id_videojuego=vIDComen)
     comentario.objects.create( comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    messages.success(request,"comentario enviado")
     return redirect(f'DeadR/{vIDComen}')
 
 def formComentarioA(request):
@@ -559,6 +560,9 @@ def formComentarioA(request):
     vUser = usuario.objects.get(correo=vCorreo)
     vJuego = videojuego.objects.get(id_videojuego=vIDComen)
     comentario.objects.create(comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+
+    messages.success(request,"comentario enviado")
+
     return redirect(f'Animal/{vIDComen}')
 
 def formComentarioBL(request):
@@ -569,6 +573,7 @@ def formComentarioBL(request):
     vUser = usuario.objects.get(correo=vCorreo)
     vJuego = videojuego.objects.get(id_videojuego=vIDComen)
     comentario.objects.create(comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    messages.success(request,"comentario enviado")
     return redirect(f'BMesa/{vIDComen}')
 
 def formComentarioBT(request):
@@ -579,6 +584,7 @@ def formComentarioBT(request):
     vUser = usuario.objects.get(correo=vCorreo)
     vJuego = videojuego.objects.get(id_videojuego=vIDComen)
     comentario.objects.create(comentarios=vComentario, usuario_id_usuario=vUser, videojuego_id_videojuego=vJuego)
+    messages.success(request,"comentario enviado")
     return redirect(f'Batman/{vIDComen}')
 
 def VerComentarios(request,id):
