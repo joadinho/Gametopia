@@ -73,7 +73,7 @@
           </div>
       </div><br>
 
-          
+     
       <div class="row">
           <div class="table-responsive">
           <table class="table  centrar  letraVJ" style="background-color: rgb(255, 255, 255);" id="table">
@@ -94,6 +94,16 @@
                 </td>
               </tr>
               {% endfor %}
+
+              {% if messages %}
+                <ul   class="" style="text-align: center; background-color: rgba(255, 255, 255, 0.908); margin-left: 12%;margin-right: 12%;">
+              {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+                </ul>
+              {% endif %}  
+              
+
 
       </table>
       </div>

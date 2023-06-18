@@ -107,6 +107,14 @@
             
 
             {% endfor %}
+                {% if messages %}
+                  <ul   class="" style="text-align: center; background-color: rgba(255, 255, 255, 0.908); margin-left: 12%;margin-right: 12%;">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                  </ul>
+                {% endif %}
+            
             
           </table>
         </div>

@@ -65,11 +65,13 @@ def modiJuegos(request):
         VideojuegoModi.foto=vFotoM
 
     VideojuegoModi.save()
+    messages.success(request,"Juego modificado.")
     return redirect('ModificarJuegos')
 
 def eliminarJuego(request,id):
     EliminarV = videojuego.objects.get(id_videojuego = id)
     EliminarV.delete()
+    messages.success(request,"Juego eliminado.")
     return redirect('ModificarJuegos')
 
 def Registrarse(request):
@@ -112,6 +114,8 @@ def CambiRol(request):
     RolCambiar.rol_id_rol = registroRolC
 
     RolCambiar.save()
+    messages.success(request,"Rol modificado")
+
     return redirect('Administrador')
 
 def Contacto(request,id):
@@ -135,11 +139,14 @@ def Modificar(request):
 def eliminarRol(request,id):
     EliminarR = rol.objects.get(id_rol = id)
     EliminarR.delete()
+    messages.success(request,"Rol eliminado.")
     return redirect('AgregarRP')
 
 def eliminarPlata(request,id):
     EliminarP = plataforma.objects.get(id_plataforma = id)
     EliminarP.delete()
+    messages.success(request,"Plataforma eliminada.")
+    
     return redirect('AgregarPla')
 
 def AgregarRP(request):
@@ -163,6 +170,7 @@ def FormAgregarR(request):
 
     vRolN = request.POST['RolName']
     rol.objects.create( nombreR=vRolN )
+    messages.success(request,"Rol agregado.")
 
     return redirect('AgregarRP')
 
@@ -170,6 +178,8 @@ def FormAgregarP(request):
 
     vPlata = request.POST['PlataformaName']
     plataforma.objects.create( nombrePLA=vPlata )
+    messages.success(request,"Plataforma agregada.")
+    
 
     return redirect('AgregarPla')
 
@@ -598,4 +608,5 @@ def VerComentarios(request,id):
 def eliminarComentario(request,id):
     EliminarC = comentario.objects.get(id_comentario = id)
     EliminarC.delete()
+    messages.success(request,"Comentario eliminado.")
     return redirect('Comentarios')
