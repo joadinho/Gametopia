@@ -4,21 +4,86 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def Pantalla(request,id):
     if id == 0:
-        return render(request,'extension/Pantalla.html')
+
+        listaJ = videojuego.objects.get(id_videojuego = 63)
+        listaT = videojuego.objects.get(id_videojuego = 76)
+
+        listal = videojuego.objects.get(id_videojuego = 62)
+        listap = videojuego.objects.get(id_videojuego = 74)
+
+        listam = videojuego.objects.get(id_videojuego = 102)
+        listan = videojuego.objects.get(id_videojuego = 101)
+
+        listah = videojuego.objects.get(id_videojuego = 78)
+        listag = videojuego.objects.get(id_videojuego = 68)
+
+        contexto={
+            
+            "VideoJ":listaJ,
+            "VideoT":listaT,
+
+            "VideoL":listal,
+            "VideoP":listap,
+
+            "VideoM":listam,
+            "VideoN":listan,
+
+            "VideoH":listah,
+            "VideoG":listag
+
+        }
+        return render(request,'extension/Pantalla.html',contexto)
+    
     lista = usuario.objects.get(idUsuario=id)
-    contexto = {
-        "Panta": lista
+    listaJ = videojuego.objects.get(id_videojuego = 63)
+    listaT = videojuego.objects.get(id_videojuego = 76)
+
+    listal = videojuego.objects.get(id_videojuego = 62)
+    listap = videojuego.objects.get(id_videojuego = 74)
+
+    listam = videojuego.objects.get(id_videojuego = 102)
+    listan = videojuego.objects.get(id_videojuego = 101)
+
+    listah = videojuego.objects.get(id_videojuego = 78)
+    listag = videojuego.objects.get(id_videojuego = 68)
+
+    contexto={
+            
+            "Panta": lista,
+
+            "VideoJ":listaJ,
+            "VideoT":listaT,
+
+            "VideoL":listal,
+            "VideoP":listap,
+
+            "VideoM":listam,
+            "VideoN":listan,
+
+            "VideoH":listah,
+            "VideoG":listag
     }
     return render(request,'extension/Pantalla.html',contexto)
 
+@login_required (login_url= 'Login' )
 def Comentarios(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     listaUsuarios = usuario.objects.all()
     listaComentarios = comentario.objects.all()
+
     contexto = {
     "usuarios": listaUsuarios,
     "comentarios": listaComentarios
@@ -26,14 +91,32 @@ def Comentarios(request):
     }
     return render(request,'extension/Comentarios.html',contexto)
 
+@login_required (login_url= 'Login' )
 def ModificarJuegos(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     lista = videojuego.objects.all()
     contexto = {
         "ModificarV": lista
     }
     return render(request,'extension/ModificarJuegos.html',contexto)
 
+@login_required (login_url= 'Login' )
 def MJuegos(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     PlataM = plataforma.objects.all()
     VideoM = videojuego.objects.get(id_videojuego = id)
     contexto = {
@@ -42,7 +125,15 @@ def MJuegos(request,id):
     }
     return render(request,'extension/MJuegos.html',contexto)
 
+@login_required (login_url= 'Login' )
 def modiJuegos(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
 
     vFotoM = request.FILES.get('fotoMV' , '')
     vIDV = request.POST['idV']
@@ -68,7 +159,16 @@ def modiJuegos(request):
     messages.success(request,"Juego modificado.")
     return redirect('ModificarJuegos')
 
+@login_required (login_url= 'Login' )
 def eliminarJuego(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     EliminarV = videojuego.objects.get(id_videojuego = id)
     EliminarV.delete()
     messages.success(request,"Juego eliminado.")
@@ -82,7 +182,16 @@ def Registrarse(request):
 
     return render(request,'extension/Registrarse.html', contexto)
 
+@login_required (login_url= 'Login' )
 def CambiarRol(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     usuariosC = usuario.objects.get(idUsuario = id)
     rolesC = rol.objects.all()
 
@@ -92,7 +201,16 @@ def CambiarRol(request,id):
     }
     return render(request,'extension/CambiarRol.html', contexto)
 
+@login_required (login_url= 'Login' )
 def Administrador(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     listaUsuarios = usuario.objects.all()
     listaRoles = rol.objects.all()
 
@@ -102,7 +220,16 @@ def Administrador(request):
     }
     return render(request,'extension/administrador.html', contexto)
 
+@login_required (login_url= 'Login' )
 def CambiRol(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     vID = request.POST['IDU']
     vCorreoC = request.POST['NombreUC']
     vRolC = request.POST['RolC']
@@ -132,24 +259,59 @@ def Login(request):
     logout(request)
     return render(request,'extension/Login.html')
 
+@login_required (login_url= 'Login' )
 def Modificar(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
 
     return render(request,'extension/Modificar.html')
 
+@login_required (login_url= 'Login' )
 def eliminarRol(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     EliminarR = rol.objects.get(id_rol = id)
     EliminarR.delete()
     messages.success(request,"Rol eliminado.")
     return redirect('AgregarRP')
 
+@login_required (login_url= 'Login' )
 def eliminarPlata(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     EliminarP = plataforma.objects.get(id_plataforma = id)
     EliminarP.delete()
     messages.success(request,"Plataforma eliminada.")
     
     return redirect('AgregarPla')
 
+@login_required (login_url= 'Login' )
 def AgregarRP(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     listaRols = rol.objects.all()
     
     contexto={
@@ -158,7 +320,16 @@ def AgregarRP(request):
     }
     return render(request,'extension/AgregarRP.html',contexto)
 
+@login_required (login_url= 'Login' )
 def AgregarPla(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     listaPlat = plataforma.objects.all()
     
     contexto={
@@ -183,7 +354,16 @@ def FormAgregarP(request):
 
     return redirect('AgregarPla')
 
+@login_required (login_url= 'Login' )
 def ModificarP(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     lista = usuario.objects.get(idUsuario=id)
     contexto={
         "ModificarP":lista
@@ -199,6 +379,7 @@ def Olvidado(request):
     }
     return render(request,'extension/olvidado.html', contexto)
 
+@login_required (login_url= 'Login' )
 def VerPerfil(request,id):
 
     lista = usuario.objects.get(idUsuario=id)
@@ -225,7 +406,6 @@ def xbox(request,id):
         "xbo": lista,
         "juegos": listaJuegos
     }
-
     return render(request,'extension/Exclusivo Xbox/xbox.html', contexto)
 
 def Play(request,id):
@@ -371,8 +551,17 @@ def BMesa(request, id):
             "Comentario" : Vcomen
         }
         return render(request,'extension/Exclusivo PC/BLACK MESA.html', contexto)
-    
+
+@login_required (login_url= 'Login' )    
 def plantillaMenu(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     lista = usuario.objects.get(idUsuario=id)
     contexto ={
         "usuarios":lista
@@ -401,8 +590,17 @@ def formOlvidado(request):
     except usuario.DoesNotExist:
         messages.error(request, "No hay coincidencias ")
         return redirect('Olvidado')
-    
+
+@login_required (login_url= 'Login' )    
 def Agregar(request):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     listaPlataforma = plataforma.objects.all()
     contexto = {
         "Plataformas": listaPlataforma
@@ -600,7 +798,16 @@ def formComentarioBT(request):
     messages.success(request,"comentario enviado")
     return redirect(f'Batman/{vIDComen}')
 
+@login_required (login_url= 'Login' ) 
 def VerComentarios(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     comen = comentario.objects.filter(usuario_id_usuario=id)
 
     contexto={
@@ -608,7 +815,16 @@ def VerComentarios(request,id):
     }
     return render(request,'extension/VerComentarios.html', contexto)
 
+@login_required (login_url= 'Login' )  
 def eliminarComentario(request,id):
+
+    vCorreo = request.user.username
+    vUser = usuario.objects.get(correo=vCorreo)
+    vRun = vUser.idUsuario
+    vIDR = vUser.rol_id_rol.id_rol
+    if vIDR != 2:
+        return redirect (f'VerPerfil/{vRun}')
+    
     EliminarC = comentario.objects.get(id_comentario = id)
     EliminarC.delete()
     messages.success(request,"Comentario eliminado.")

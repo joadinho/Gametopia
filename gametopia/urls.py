@@ -25,10 +25,5 @@ urlpatterns = [
     path ('api/', include('gametopia1.urls')),
 ]
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include('extension.urls')),
-]
-
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT) 
