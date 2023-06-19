@@ -5,7 +5,7 @@ class comentarioSerializer(serializers.ModelSerializer):
         model = comentario
         fields = ['id_comentario','comentarios','usuario_id_usuario','videojuego_id_videojuego']
 
+class videojuegoSerializer(serializers.ModelSerializer):
+    class Meta:
         model = videojuego
         fields = ['id_videojuego','nombreV','descripcion','trailer','link','plataforma_id']
-
-
