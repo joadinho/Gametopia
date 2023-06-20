@@ -260,7 +260,6 @@ def Login(request):
     return render(request,'extension/Login.html')
 
 def Modificar(request):
-
     return render(request,'extension/Modificar.html')
 
 @login_required (login_url= 'Login' )
@@ -346,16 +345,8 @@ def FormAgregarP(request):
 
     return redirect('AgregarPla')
 
-@login_required (login_url= 'Login' )
 def ModificarP(request,id):
 
-    vCorreo = request.user.username
-    vUser = usuario.objects.get(correo=vCorreo)
-    vRun = vUser.idUsuario
-    vIDR = vUser.rol_id_rol.id_rol
-    if vIDR != 2:
-        return redirect (f'VerPerfil/{vRun}')
-    
     lista = usuario.objects.get(idUsuario=id)
     contexto={
         "ModificarP":lista
