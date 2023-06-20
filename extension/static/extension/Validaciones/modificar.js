@@ -4,6 +4,7 @@ $(document).ready(function(){
 
         var clave_modi     = $("#passwordM").val();
         var con_clave_modi = $("#con_passwordM").val();
+
         var clave_modiP     = $("#claveN").val();
         var con_clave_modiP = $("#claveCN").val();
         
@@ -12,6 +13,13 @@ $(document).ready(function(){
         let enviar = false;
 
         //validar password
+
+        if (con_clave_modi.trim() != clave_modi.trim()){
+            msjMostrar += "<br>-La clave confirmada no es la misma.";
+            enviar = true;
+            e.preventDefault();
+
+        }
 
         if(clave_modi.trim().length < 8 || clave_modi.trim().length > 12){
             msjMostrarModi = msjMostrarModi + "<br>-Clave inválida debe tener entre 8 y 12 caracteres";
@@ -50,6 +58,13 @@ $(document).ready(function(){
         }
 
         //validar passwordP
+
+        if (con_clave_modiP.trim() != clave_modiP.trim()){
+            msjMostrar += "<br>-La clave confirmada no es la misma.";
+            enviar = true;
+            e.preventDefault();
+
+        }
 
         if(clave_modiP.trim().length < 8 || clave_modiP.trim().length > 12){
             msjMostrarModi = msjMostrarModi + "<br>-Clave inválida debe tener entre 8 y 12 caracteres";
