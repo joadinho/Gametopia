@@ -259,15 +259,7 @@ def Login(request):
     logout(request)
     return render(request,'extension/Login.html')
 
-@login_required (login_url= 'Login' )
 def Modificar(request):
-
-    vCorreo = request.user.username
-    vUser = usuario.objects.get(correo=vCorreo)
-    vRun = vUser.idUsuario
-    vIDR = vUser.rol_id_rol.id_rol
-    if vIDR != 2:
-        return redirect (f'VerPerfil/{vRun}')
 
     return render(request,'extension/Modificar.html')
 

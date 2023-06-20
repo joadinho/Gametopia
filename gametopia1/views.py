@@ -1,15 +1,21 @@
 from django.shortcuts import render
-# APIS 
 from rest_framework import status
+from rest_framework.decorators import api_view,permission_classes
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from .serializers import comentarioSerializer,videojuegoSerializer
 from extension.models import comentario,videojuego
+
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
+
 @csrf_exempt
 @api_view(['GET','POST'])
+@permission_classes((IsAuthenticated,))
 def lista_comentario(request):
     if request.method == 'GET':
         Comentario =  comentario.objects.all()
@@ -26,6 +32,7 @@ def lista_comentario(request):
         
 
 @api_view(['GET','PUT','DELETE'])
+@permission_classes((IsAuthenticated,))
 def detalle_comentario(request,id):
     try:
         Comentario =comentario.objects.get(id_comentario=id)
@@ -51,6 +58,7 @@ def detalle_comentario(request,id):
 
 
 @api_view(['GET','POST'])
+@permission_classes((IsAuthenticated,))
 def lista_videojuego(request):
     if request.method == 'GET':
         Videojuego =  videojuego.objects.all()
@@ -67,6 +75,7 @@ def lista_videojuego(request):
         
 
 @api_view(['GET','PUT','DELETE'])
+@permission_classes((IsAuthenticated,))
 def detalle_videojuego(request,id):
     try:
         Videojuego =videojuego.objects.get(id_videojuego=id)
