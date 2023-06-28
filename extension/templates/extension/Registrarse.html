@@ -94,6 +94,14 @@
                       </div>
                     </div>
                     <p class="warnings" id="mensaje_register"></p>
+                    <p class="warnings " id="mensaje"></p>
+                    {% if messages %}
+                    <ul   class="messages letraLo">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
                     
                 </form>
             </div>

@@ -614,15 +614,13 @@ def formAgregarJ(request):
     
 def formAgregarM(request):
     vClaveN = request.POST['passwordN']
-    vClaveU = request.POST['passwordM']
     vCorreo = request.POST['emailM']
     vFotoM = request.FILES.get('fotoP', '')
     
-    listaM = usuario.objects.get(clave=vClaveU, correo=vCorreo) 
+    listaM = usuario.objects.get( correo=vCorreo) 
 
-    if vClaveN=='':
-        listaM.clave=vClaveU
-    else:
+
+    if vClaveN !='':
         listaM.clave=vClaveN
 
     if vFotoM!='':
@@ -644,15 +642,12 @@ def formAgregarM(request):
 def formAgregarMP(request):
 
     vClaveN = request.POST['claveN']
-    vClaveU = request.POST['claveM']
     vCorreo = request.POST['emailM']
     vFotoM = request.FILES.get('fotoMP', '')
     
-    listaM = usuario.objects.get(clave=vClaveU, correo=vCorreo) 
+    listaM = usuario.objects.get( correo=vCorreo) 
 
-    if vClaveN=='':
-        listaM.clave=vClaveU
-    else:
+    if vClaveN !='':
         listaM.clave=vClaveN
 
     if vFotoM!='':
@@ -671,6 +666,7 @@ def formAgregarMP(request):
     return render(request,'extension/Login.html',contexto)
 
 def formAgregarU(request):
+    
     vNombreU = request.POST['nombre']
     vApellidoU = request.POST['apellido']
     vClaveU = request.POST['password']
@@ -683,11 +679,18 @@ def formAgregarU(request):
     vRol = 1 
     vRegistroRol = rol.objects.get(id_rol=vRol)
 
+    valida = usuario.objects.all()
+    for forcorreo in valida:
+        if forcorreo.correo == vCorreoU:
+             messages.error(request,"Correo ya existente")
+             return redirect('Registrarse')
+
     vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
     usuario.objects.create(nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU, correo=vCorreoU, 
                             telefono=vTelefonoU, fechaU=vFechaU, fotoU=vFotoU, pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta, rol_id_rol=vRegistroRol) 
     
-    user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)
+    user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)      
+
     return redirect('Login')
 
 def formSesion(request):
