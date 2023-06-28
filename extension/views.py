@@ -551,7 +551,11 @@ def plantillaMenu(request,id):
 
     }
     return render(request,'extension/plantillaMenu.html',contexto)
+
+
+
     
+
 def formOlvidado(request):
     try: 
         vPregunta=request.POST['pregunta']
@@ -614,22 +618,19 @@ def formAgregarJ(request):
     
 def formAgregarM(request):
     vClaveN = request.POST['passwordN']
-    vCorreo = request.POST['emailM']
-    vFotoM = request.FILES.get('fotoP', '')
+    vClaveA = request.POST['claveA']
     
-    listaM = usuario.objects.get( correo=vCorreo) 
+    
+    listaM = usuario.objects.get() 
 
 
     if vClaveN !='':
         listaM.clave=vClaveN
 
-    if vFotoM!='':
-        listaM.fotoU=vFotoM
-
     listaM.save()
 
 
-    u = User.objects.get(username=vCorreo)
+    u = User.objects.get()
     u.set_password(vClaveN)
     u.save()
 
@@ -641,14 +642,22 @@ def formAgregarM(request):
 
 def formAgregarMP(request):
 
-    vClaveN = request.POST['claveN']
+    vNombre = request.POST['nombreM']
+    vApellido = request.POST['apellidoM']
+    vTelefono =request.POST['telefonoM']
     vCorreo = request.POST['emailM']
     vFotoM = request.FILES.get('fotoMP', '')
     
-    listaM = usuario.objects.get( correo=vCorreo) 
+    listaM = usuario.objects.get(correo=vCorreo) 
 
-    if vClaveN !='':
-        listaM.clave=vClaveN
+    if vNombre !='':
+        listaM.nombreU=vNombre
+    
+    if vApellido !='':
+        listaM.apellido=vApellido
+    
+    if vTelefono !='':
+        listaM.telefono=vTelefono
 
     if vFotoM!='':
         listaM.fotoU=vFotoM
@@ -656,7 +665,6 @@ def formAgregarMP(request):
     listaM.save()
 
     u = User.objects.get(username=vCorreo)
-    u.set_password(vClaveN)
     u.save()
 
     contexto = {
@@ -667,15 +675,32 @@ def formAgregarMP(request):
 
 def formAgregarU(request):
     
+    contexto = {}
+
     vNombreU = request.POST['nombre']
+    contexto["nombre"]=vNombreU
+
     vApellidoU = request.POST['apellido']
+    contexto["apellido"]=vApellidoU
+
     vClaveU = request.POST['password']
-    vCorreoU = request.POST['email']  
+
+    vCorreoU = request.POST['email']
+    contexto["email"]=vCorreoU
+
     vPregunta=request.POST['pregunta']
+
     vRespuesta=request.POST['respuesta']
+    contexto["respuesta"]=vRespuesta
+
     vTelefonoU = request.POST['telefono']
+    contexto["telefono"]=vTelefonoU
+
     vFechaU = request.POST['fecha']
+    contexto["fecha"]=vFechaU
+
     vFotoU = request.FILES['fotoU']
+
     vRol = 1 
     vRegistroRol = rol.objects.get(id_rol=vRol)
 
@@ -683,7 +708,7 @@ def formAgregarU(request):
     for forcorreo in valida:
         if forcorreo.correo == vCorreoU:
              messages.error(request,"Correo ya existente")
-             return redirect('Registrarse')
+             return render(request,'extension/Registrarse.html',contexto)
 
     vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
     usuario.objects.create(nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU, correo=vCorreoU, 
