@@ -73,7 +73,7 @@
         <div class="row" style="margin-top: 50px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificar" class="fondoform" enctype="multipart/form-data">
+                <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" enctype="multipart/form-data">
                   
                   {% csrf_token %}
 
@@ -101,11 +101,11 @@
                       <label for=""><h5>Contraseña Actual</h5></label>
                   </div>
                     <div class="grupo">
-                      <input type="password" name="claveN" required id="claveN"><span class="barra" ></span>
+                      <input type="password" name="claveN"  id="claveN"><span class="barra" ></span>
                       <label for=""><h5>Contraseña Nueva</h5></label>
                   </div>
                   <div class="grupo">
-                          <input type="password" name="claveCN" required id="claveCN"><span class="barra"  ></span>
+                          <input type="password" name="claveCN"  id="claveCN"><span class="barra"  ></span>
                           <label for=""><h5>Confirmar Contraseña</h5></label>
                       </div>
 
@@ -121,7 +121,7 @@
                       </div>
                     </div><br>
 
-                    <p class="warnings" id="mensaje_modificar"></p>
+                    <p class="warnings" id="mensaje_modificarP"></p>
                     
                 </form>
             </div></div><br><br>
@@ -137,5 +137,5 @@ crossorigin="anonymous"></script>
 {% endblock script %}   
     
 {% block validaciones %}
-<script src="{% static 'extension/Validaciones/modificar.js' %}"></script>
+<script src="{% static 'extension/Validaciones/modificarP.js' %}"></script>
 {% endblock validaciones %}
