@@ -34,6 +34,7 @@
             <div class="form">
                 <h1 class="centrar letraLo">¿Olvidaste tu contraseña?</h1>
                 <div class="grupo">
+                    
                     <label>Preguntas de seguridad</label>
                    <select class="form-control" name="pregunta" id="pregunta">
                        {% for x in preguntas %}
@@ -45,6 +46,10 @@
                     <input type="text" name="respuestas" id="respuestas"><span class="barra"  ></span>
                     <label for=""><h5>Escriba su respuesta para saber que es usted.</h5></label>
                 </div>
+                <div class="grupo">
+                    <input type="text" name="emailO" id="emailO"><span class="barra" ></span>
+                    <label for=""><h5>Escriba su correo:</h5></label>
+                  </div>
                 <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
 
                 <p class="warnings" id="mensaje_Olvidado"></p>

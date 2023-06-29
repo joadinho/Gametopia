@@ -43,11 +43,11 @@
                 </div>
 
                 <div class="grupo">
-                  <input type="password" name="password" id="password" ><span class="barra"></span>
+                  <input type="password" name="password" id="password" value="{{password}}" ><span class="barra"></span>
                   <label for=""><h5>Contraseña</h5></label>
                 </div>
                 <div class="grupo">
-                  <input type="password" name="con_password" id="con_password"><span class="barra"></span>
+                  <input type="password" name="con_password" id="con_password" value="{{password}}"><span class="barra" ></span>
                   <label for=""><h5>Confirmar contraseña</h5></label>
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <div class="grupo">
                   <label>Preguntas</label>
-                 <select class="form-control" name="pregunta" id="pregunta">
+                 <select class="form-control" name="pregunta" id="pregunta" value="{{preguntas}}" >
                      {% for x in preguntas %}
                      <option value="{{ x.id_pregunta }}">{{ x.nombreP }}</option>
                      {% endfor %}

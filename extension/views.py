@@ -176,6 +176,7 @@ def eliminarJuego(request,id):
 
 def Registrarse(request):
     listaPreguntas = pregunta.objects.all()
+    
     contexto = {
         "preguntas": listaPreguntas
     }
@@ -552,16 +553,13 @@ def plantillaMenu(request,id):
     }
     return render(request,'extension/plantillaMenu.html',contexto)
 
-
-
-    
-
 def formOlvidado(request):
     try: 
         vPregunta=request.POST['pregunta']
         vRespuesta=request.POST['respuestas']
+        vCorreo=request.POST['emailO']
         vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
-        vVariable = usuario.objects.get(pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta) 
+        vVariable = usuario.objects.get(pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta,correo=vCorreo) 
     
 
         contexto ={ 
@@ -618,10 +616,10 @@ def formAgregarJ(request):
     
 def formAgregarM(request):
     vClaveN = request.POST['passwordN']
-    vClaveA = request.POST['claveA']
+    vCorreo = request.POST['emailM']
     
     
-    listaM = usuario.objects.get() 
+    listaM = usuario.objects.get(correo=vCorreo) 
 
 
     if vClaveN !='':
@@ -630,7 +628,7 @@ def formAgregarM(request):
     listaM.save()
 
 
-    u = User.objects.get()
+    u = User.objects.get(username=vCorreo)
     u.set_password(vClaveN)
     u.save()
 
@@ -684,11 +682,14 @@ def formAgregarU(request):
     contexto["apellido"]=vApellidoU
 
     vClaveU = request.POST['password']
+    contexto["password"]=vClaveU
 
     vCorreoU = request.POST['email']
     contexto["email"]=vCorreoU
-
+    
     vPregunta=request.POST['pregunta']
+    variable = pregunta.objects.all()
+    contexto["preguntas"]=variable
 
     vRespuesta=request.POST['respuesta']
     contexto["respuesta"]=vRespuesta
